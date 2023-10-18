@@ -5,21 +5,385 @@
 </head>
 <body>
 
-<h1>Electronic circuit</h1>
-<p> its a complete circular path that electricity flows through.it directs and controls electric current to perform various functions.
+<h1>Embedded Systems [II]</h1>
+<p> Electronic circuit- a complete circular path that electricity flows through.it directs and controls electric current to perform various functions.
     It consists of components such as trasistors, diodes, resistors,inductors and capacitors, which aid in signal amplification,<br>computing and data transfer.
 <br>A circuit has three major components: <br>a conductive path- a pathway for current to pass through...wire
                                           <br>a source of power (battery)
                                           <br>a load- e.g a lamp that needs electric power to operate 
 
-Sensor- a device that detect/ senses physical phenomenon then reacts to it in a particular way.<br>
-      converts physical attributes to electric signal.
+
+
+ <P>Traffic lights using LEDS with RP2040</P>
+
+    <video width="320" height="240" controls>
+      <source src="../videos/trafficlights.mp4" type ="video/mp4">
+    Your browser does not support the video tag.
+    </video>>
+
+    with the code below:
+<code> from machine import Pin
+from time import sleep
+
+
+one= Pin(0,Pin.OUT)
+two= Pin(1,Pin.OUT)
+three= Pin(2,Pin.OUT)
+four= Pin(3,Pin.OUT)
+five= Pin(4,Pin.OUT)
+six= Pin(5,Pin.OUT)
+seven= Pin(6,Pin.OUT)
+eight= Pin(7,Pin.OUT)
+nine= Pin(8,Pin.OUT)
+ten= Pin(9,Pin.OUT)
+eleven= Pin(10,Pin.OUT)
+twelve= Pin(11,Pin.OUT)
+thirteen= Pin(12,Pin.OUT)
+fourteen= Pin(13,Pin.OUT)
+fifteen= Pin(14,Pin.OUT)
+sixteen= Pin(15,Pin.OUT)
+
+#button=Pin(1,Pin.IN,Pin.PULL_UP)
+
+while True:
+    
+    one.value(1)
+    two.value(0)
+    three.value(0)
+    four.value(0)
+    five.value(0)
+    six.value(0)
+    seven.value(0)
+    eight.value(0)
+    nine.value(0)
+    ten.value(0)
+    eleven.value(0)
+    twelve.value(0)
+    thirteen.value(0)
+    fourteen.value(0)
+    fifteen.value(0)
+    sixteen.value(0)
+    sleep(1)
+    
+    one.value(0)
+    two.value(1)
+    three.value(0)
+    four.value(0)
+    five.value(0)
+    six.value(0)
+    seven.value(0)
+    eight.value(0)
+    nine.value(0)
+    ten.value(0)
+    eleven.value(0)
+    twelve.value(0)
+    thirteen.value(0)
+    fourteen.value(0)
+    fifteen.value(0)
+    sixteen.value(0)
+    sleep(1)
+    
+    one.value(0)
+    two.value(0)
+    three.value(1)
+    four.value(0)
+    five.value(0)
+    six.value(0)
+    seven.value(0)
+    eight.value(0)
+    nine.value(0)
+    ten.value(0)
+    eleven.value(0)
+    twelve.value(0)
+    thirteen.value(0)
+    fourteen.value(0)
+    fifteen.value(0)
+    sixteen.value(0)
+    sleep(1)
+    
+    
+    one.value(0)
+    two.value(0)
+    three.value(0)
+    four.value(1)
+    five.value(0)
+    six.value(0)
+    seven.value(0)
+    eight.value(0)
+    nine.value(0)
+    ten.value(0)
+    eleven.value(0)
+    twelve.value(0)
+    thirteen.value(0)
+    fourteen.value(0)
+    fifteen.value(0)
+    sixteen.value(0)
+    sleep(1)
+    
+    one.value(0)
+    two.value(0)
+    three.value(0)
+    four.value(0)
+    five.value(1)
+    six.value(0)
+    seven.value(0)
+    eight.value(0)
+    nine.value(0)
+    ten.value(0)
+    eleven.value(0)
+    twelve.value(0)
+    thirteen.value(0)
+    fourteen.value(0)
+    fifteen.value(0)
+    sixteen.value(0)
+    sleep(1)
+    
+    one.value(0)
+    two.value(0)
+    three.value(0)
+    four.value(0)
+    five.value(0)
+    six.value(1)
+    seven.value(0)
+    eight.value(0)
+    nine.value(0)
+    ten.value(0)
+    eleven.value(0)
+    twelve.value(0)
+    thirteen.value(0)
+    fourteen.value(0)
+    fifteen.value(0)
+    sixteen.value(0)
+    sleep(1)
+    
+    one.value(0)
+    two.value(0)
+    three.value(0)
+    four.value(0)
+    five.value(0)
+    six.value(0)
+    seven.value(1)
+    eight.value(0)
+    nine.value(0)
+    ten.value(0)
+    eleven.value(0)
+    twelve.value(0)
+    thirteen.value(0)
+    fourteen.value(0)
+    fifteen.value(0)
+    sixteen.value(0)
+    sleep(1)
+    
+    
+    
+    one.value(0)
+    two.value(0)
+    three.value(0)
+    four.value(0)
+    five.value(0)
+    six.value(0)
+    seven.value(0)
+    eight.value(1)
+    nine.value(0)
+    ten.value(0)
+    eleven.value(0)
+    twelve.value(0)
+    thirteen.value(0)
+    fourteen.value(0)
+    fifteen.value(0)
+    sixteen.value(0)
+    sleep(1)
+    
+    one.value(0)
+    two.value(0)
+    three.value(0)
+    four.value(0)
+    five.value(0)
+    six.value(0)
+    seven.value(0)
+    eight.value(0)
+    nine.value(1)
+    ten.value(0)
+    eleven.value(0)
+    twelve.value(0)
+    thirteen.value(0)
+    fourteen.value(0)
+    fifteen.value(0)
+    sixteen.value(0)
+    sleep(1)
+    
+    one.value(0)
+    two.value(0)
+    three.value(0)
+    four.value(0)
+    five.value(0)
+    six.value(0)
+    seven.value(0)
+    eight.value(0)
+    nine.value(0)
+    ten.value(1)
+    eleven.value(0)
+    twelve.value(0)
+    thirteen.value(0)
+    fourteen.value(0)
+    fifteen.value(0)
+    sixteen.value(0)
+    sleep(1)
+    
+    one.value(0)
+    two.value(0)
+    three.value(0)
+    four.value(0)
+    five.value(0)
+    six.value(0)
+    seven.value(0)
+    eight.value(0)
+    nine.value(0)
+    ten.value(0)
+    eleven.value(1)
+    twelve.value(0)
+    thirteen.value(0)
+    fourteen.value(0)
+    fifteen.value(0)
+    sixteen.value(0)
+    sleep(1)
+    
+    one.value(0)
+    two.value(0)
+    three.value(0)
+    four.value(0)
+    five.value(0)
+    six.value(0)
+    seven.value(0)
+    eight.value(0)
+    nine.value(0)
+    ten.value(0)
+    eleven.value(0)
+    twelve.value(1)
+    thirteen.value(0)
+    fourteen.value(0)
+    fifteen.value(0)
+    sixteen.value(0)
+    sleep(1)
+    
+    
+    one.value(0)
+    two.value(0)
+    three.value(0)
+    four.value(0)
+    five.value(0)
+    six.value(0)
+    seven.value(0)
+    eight.value(0)
+    nine.value(0)
+    ten.value(0)
+    eleven.value(0)
+    twelve.value(0)
+    thirteen.value(1)
+    fourteen.value(0)
+    fifteen.value(0)
+    sixteen.value(0)
+    sleep(1)
+    
+    one.value(0)
+    two.value(0)
+    three.value(0)
+    four.value(0)
+    five.value(0)
+    six.value(0)
+    seven.value(0)
+    eight.value(0)
+    nine.value(0)
+    ten.value(0)
+    eleven.value(0)
+    twelve.value(0)
+    thirteen.value(0)
+    fourteen.value(1)
+    fifteen.value(0)
+    sixteen.value(0)
+    sleep(1)
+    
+    one.value(0)
+    two.value(0)
+    three.value(0)
+    four.value(0)
+    five.value(0)
+    six.value(0)
+    seven.value(0)
+    eight.value(0)
+    nine.value(0)
+    ten.value(0)
+    eleven.value(0)
+    twelve.value(0)
+    thirteen.value(0)
+    fourteen.value(0)
+    fifteen.value(1)
+    sixteen.value(0)
+    sleep(1)
+    
+    one.value(0)
+    two.value(0)
+    three.value(0)
+    four.value(0)
+    five.value(0)
+    six.value(0)
+    seven.value(0)
+    eight.value(0)
+    nine.value(0)
+    ten.value(0)
+    eleven.value(0)
+    twelve.value(0)
+    thirteen.value(0)
+    fourteen.value(0)
+    fifteen.value(0)
+    sixteen.value(1)
+    sleep(1)</code>
+
+    <P>Sensor- a device that detect/ senses physical phenomenon then reacts to it in a particular way.<br>It converts physical attributes to electric signal.eg.Utrasonic sensor which sends out soundwaves and measures the time it takes for the sound to be reflected back.<br>Passive infrared sensor- detects a change in infrared radiation and generates a digital output signal.
       
-Actuator- converts electric signals to physical action.</p>
+   Actuator- is a part of a device that achieves physical movement by converting energy to mechanical force.<br>it controls movement or positioning.</p>
+Examp
+   <p>Here is a simple project using an ultrasonic sensor</p>
 
-  <video width="340" height="240" autoplay muted>
-    <source src="video.ogg">
-
+<code>from machine import Pin
+  import utime
+  
+  trigger = Pin(3, Pin.OUT)
+  echo = Pin(2, Pin.IN)
+  led =Pin(4, Pin.OUT)
+  buzzer= Pin(5, Pin.OUT)
+  led.value(0)
+  buzzer.value(0)
+  
+  def ultra():
+      trigger.low()
+      utime.sleep_us(2)
+      trigger.high()
+      utime.sleep_us(5)
+      trigger.low()
+  
+      while echo.value() == 0:
+          signaloff = utime.ticks_us()
+  
+      while echo.value() == 1:
+          signalon = utime.ticks_us()
+  
+      timepassed = signalon - signaloff
+      distance = (timepassed * 0.0343) / 2
+      return distance
+  
+  while True:
+      measured_distance = ultra()
+      if measured_distance <= 50:
+          print("The distance from the object is ", measured_distance, "cm")
+          led.value(1)
+          buzzer.value(1)
+          utime.sleep(1)
+          led.value(0)
+          buzzer.value(0)
+          break
+      
+      utime.sleep(1)</code>
 
 
 </body>

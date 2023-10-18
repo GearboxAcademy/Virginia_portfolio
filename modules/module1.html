@@ -5,23 +5,39 @@
 </head>
 <body>
 
-<h1>Embedded systems</h1>
-<p> refers to a computer system designed to perform a specific task or function.</p>
+<h1>Introduction To Embedded Systems</h1>
+<p> Embedded systems:refers to a computer system designed to perform a specific task or function.</p>
     
     
-    <p style="color:violet;"> Raspberry pi pico: <br> a micro-controller board used in a widerange of <br> applications and contains GPIO pins which can be used to control and recieve inputs from electronic devices.
-        <br>The Raspberry Pi Pico's MCU processes incoming data and commands, and then uses its GPIO pins to control external devices and sensors.<br>Thonny IDE an integrated development environment (IDE) which supports <br> multiple programming languages like python, comes with a pre-installed micro-python support that is used to program raspberry pi pico.</p>
-    
-    <p>The pico has an in-built LED connected to GPIO25 hence is the only pin that can be used to control and blink the internal LED. Image below</p>
-    
-    <img src="images/image.jpeg" width="150" height="200">
+     Raspberry pi pico:  a micro-controller board used in a widerange of applications and contains GPIO pins <br>which can be used to control and recieve inputs from electronic devices.
+        <br>The Raspberry Pi Pico's MCU processes incoming data and commands, and then uses its GPIO pins to control external devices and sensors.<br>
 
-    <p>Traffic lights using a Raspberry pi pico.Check out the video below:</p>
+       Overview of RPI PICO and Gpio pins :
+        <img src="images/image.jpeg" width="150" height="200">
 
 
-    <a href="videos">
-        <video src="videos/video.mp4 style="width:420;height:200;">
-        </a>
+        <p>Thonny IDE an integrated development environment (IDE) which supports multiple programming languages like python,<br> comes with a pre-installed micro-python support that is used to program raspberry pi pico.</p>
+
+    <p>The pico has an in-built LED connected to GPIO25 hence is the only pin that can be used to control and blink the internal LED.</p>
+    
+
+    <p>Blinking pico LED with micropython.</p>
+    <code>from machine import Pin
+        from time import sleep
+        
+        led = Pin(25,Pin.OUT)
+        
+        while True:
+            led.toggle()
+            sleep(2)</code>
+
+           <video width="320" height="240" controls>
+                <source src="../videos/blinkpico.mp4" type="video/mp4">
+                
+              Your browser does not support the video tag.
+              </video>
+            
+
 
     
     </p>
