@@ -16,26 +16,25 @@
         <img src="../images/image.jpeg" width="150" height="200">
 
 
-        <p>Thonny IDE an integrated development environment (IDE) which supports multiple programming languages like python,<br> comes with a pre-installed micro-python support that is used to program raspberry pi pico.</p>
+    <p>Thonny IDE an integrated development environment (IDE) which supports multiple programming languages like python,<br> comes with a pre-installed micro-python support that is used to program raspberry pi pico.<br></p>
 
     <p>The pico has an in-built LED connected to GPIO25 hence is the only pin that can be used to control and blink the internal LED.</p>
     
 
-    <p>Blinking pico LED with micropython.</p>
-    <code>from machine import Pin
+    <p>Blinking pico LED with micropython.<br></p>
+    <code>from machine import Pin<br>
         from time import sleep
         
-        led = Pin(25,Pin.OUT)
+  led = Pin(25,Pin.OUT)
         
-        while True:
-            led.toggle()
-            sleep(2)</code>
+  while True:<br>  
+  led.toggle()<br>
+  sleep(2)</code>
 
-           <video width="320" height="240" controls>
-                <source src="../videos/blinkpico.mp4" type="video/mp4">
-
-              Your browser does not support the video tag.
-              </video>
+<video width="320" height="240" controls>
+<source src="../videos/blinkpico.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
             
 
 

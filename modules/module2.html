@@ -13,7 +13,6 @@
                                           <br>a load- e.g a lamp that needs electric power to operate 
 
 
-
  <P>Traffic lights using LEDS with RP2040</P>
 
     <video width="320" height="240" controls>
@@ -21,369 +20,372 @@
     Your browser does not support the video tag.
     </video>>
 
-    with the code below:
-<code> from machine import Pin
-from time import sleep
+    <p>with the code below:</p>
+<code> from machine import Pin<br>
+       from time import sleep<br
 
 
-one= Pin(0,Pin.OUT)
-two= Pin(1,Pin.OUT)
-three= Pin(2,Pin.OUT)
-four= Pin(3,Pin.OUT)
-five= Pin(4,Pin.OUT)
-six= Pin(5,Pin.OUT)
-seven= Pin(6,Pin.OUT)
-eight= Pin(7,Pin.OUT)
-nine= Pin(8,Pin.OUT)
-ten= Pin(9,Pin.OUT)
-eleven= Pin(10,Pin.OUT)
-twelve= Pin(11,Pin.OUT)
-thirteen= Pin(12,Pin.OUT)
-fourteen= Pin(13,Pin.OUT)
-fifteen= Pin(14,Pin.OUT)
-sixteen= Pin(15,Pin.OUT)
+one= Pin(0,Pin.OUT)<br>
+two= Pin(1,Pin.OUT)<br>
+three= Pin(2,Pin.OUT)<br>
+four= Pin(3,Pin.OUT)<br>
+five= Pin(4,Pin.OUT)<br>
+six= Pin(5,Pin.OUT)<br>
+seven= Pin(6,Pin.OUT)<br>
+eight= Pin(7,Pin.OUT)<br>
+nine= Pin(8,Pin.OUT)<br>
+ten= Pin(9,Pin.OUT)<br>
+eleven= Pin(10,Pin.OUT)<br>
+twelve= Pin(11,Pin.OUT)<br>
+thirteen= Pin(12,Pin.OUT)<br>
+fourteen= Pin(13,Pin.OUT)<br>
+fifteen= Pin(14,Pin.OUT)<br>
+sixteen= Pin(15,Pin.OUT)<br>
 
-#button=Pin(1,Pin.IN,Pin.PULL_UP)
+#button=Pin(1,Pin.IN,Pin.PULL_UP)<br>
 
-while True:
+while True:<br>
     
-    one.value(1)
-    two.value(0)
-    three.value(0)
-    four.value(0)
-    five.value(0)
-    six.value(0)
-    seven.value(0)
-    eight.value(0)
-    nine.value(0)
-    ten.value(0)
-    eleven.value(0)
-    twelve.value(0)
-    thirteen.value(0)
-    fourteen.value(0)
-    fifteen.value(0)
-    sixteen.value(0)
-    sleep(1)
+    one.value(1)<br>
+    two.value(0)<br>
+    three.value(0)<br>
+    four.value(0)<br>
+    five.value(0)<br>
+    six.value(0)<br>
+    seven.value(0)<br>
+    eight.value(0)<br>
+    nine.value(0)<br>
+    ten.value(0)<br>
+    eleven.value(0)<br>
+    twelve.value(0)<br>
+    thirteen.value(0)<br>
+    fourteen.value(0)<br>
+    fifteen.value(0)<br>
+    sixteen.value(0)<br>
+    sleep(1)<br>
     
-    one.value(0)
-    two.value(1)
-    three.value(0)
-    four.value(0)
-    five.value(0)
-    six.value(0)
-    seven.value(0)
-    eight.value(0)
-    nine.value(0)
-    ten.value(0)
-    eleven.value(0)
-    twelve.value(0)
-    thirteen.value(0)
-    fourteen.value(0)
-    fifteen.value(0)
-    sixteen.value(0)
-    sleep(1)
+    one.value(0)<br>
+    two.value(1)<br>
+    three.value(0)<br>
+    four.value(0)<br>
+    five.value(0)<br>
+    six.value(0)<br>
+    seven.value(0)<br>
+    eight.value(0)<br>
+    nine.value(0)<br>
+    ten.value(0)<br>
+    eleven.value(0)<br>
+    twelve.value(0)<br>
+    thirteen.value(0)<br>
+    fourteen.value(0)<br>
+    fifteen.value(0)<br>
+    sixteen.value(0)<br>
+    sleep(1)<br>
     
-    one.value(0)
-    two.value(0)
-    three.value(1)
-    four.value(0)
-    five.value(0)
-    six.value(0)
-    seven.value(0)
-    eight.value(0)
-    nine.value(0)
-    ten.value(0)
-    eleven.value(0)
-    twelve.value(0)
-    thirteen.value(0)
-    fourteen.value(0)
-    fifteen.value(0)
-    sixteen.value(0)
-    sleep(1)
-    
-    
-    one.value(0)
-    two.value(0)
-    three.value(0)
-    four.value(1)
-    five.value(0)
-    six.value(0)
-    seven.value(0)
-    eight.value(0)
-    nine.value(0)
-    ten.value(0)
-    eleven.value(0)
-    twelve.value(0)
-    thirteen.value(0)
-    fourteen.value(0)
-    fifteen.value(0)
-    sixteen.value(0)
-    sleep(1)
-    
-    one.value(0)
-    two.value(0)
-    three.value(0)
-    four.value(0)
-    five.value(1)
-    six.value(0)
-    seven.value(0)
-    eight.value(0)
-    nine.value(0)
-    ten.value(0)
-    eleven.value(0)
-    twelve.value(0)
-    thirteen.value(0)
-    fourteen.value(0)
-    fifteen.value(0)
-    sixteen.value(0)
-    sleep(1)
-    
-    one.value(0)
-    two.value(0)
-    three.value(0)
-    four.value(0)
-    five.value(0)
-    six.value(1)
-    seven.value(0)
-    eight.value(0)
-    nine.value(0)
-    ten.value(0)
-    eleven.value(0)
-    twelve.value(0)
-    thirteen.value(0)
-    fourteen.value(0)
-    fifteen.value(0)
-    sixteen.value(0)
-    sleep(1)
-    
-    one.value(0)
-    two.value(0)
-    three.value(0)
-    four.value(0)
-    five.value(0)
-    six.value(0)
-    seven.value(1)
-    eight.value(0)
-    nine.value(0)
-    ten.value(0)
-    eleven.value(0)
-    twelve.value(0)
-    thirteen.value(0)
-    fourteen.value(0)
-    fifteen.value(0)
-    sixteen.value(0)
-    sleep(1)
+    one.value(0)<br>
+    two.value(0)<br>
+    three.value(1)<br>
+    four.value(0)<br>
+    five.value(0)<br>
+    six.value(0)<br>
+    seven.value(0)<br>
+    eight.value(0)<br>
+    nine.value(0)<br>
+    ten.value(0)<br>
+    eleven.value(0)<br>
+    twelve.value(0)<br>
+    thirteen.value(0)<br>
+    fourteen.value(0)<br>
+    fifteen.value(0)<br>
+    sixteen.value(0)<br>
+    sleep(1)<br>
     
     
+    one.value(0)<br>
+    two.value(0)<br>
+    three.value(0)<br>
+    four.value(1)<br>
+    five.value(0)<br>
+    six.value(0)<br>
+    seven.value(0)<br>
+    eight.value(0)<br>
+    nine.value(0)<br>
+    ten.value(0)<br>
+    eleven.value(0)<br>
+    twelve.value(0)<br>
+    thirteen.value(0)<br>
+    fourteen.value(0)<br>
+    fifteen.value(0)<br>
+    sixteen.value(0)<br>
+    sleep(1)<br>
+
+    one.value(0)<br>
+    two.value(0)<br>
+    three.value(0)<br>
+    four.value(0)<br>
+    five.value(1)<br>
+    six.value(0)<br>
+    seven.value(0)<br>
+    eight.value(0)<br>
+    nine.value(0)<br>
+    ten.value(0)<br>
+    eleven.value(0)<br>
+    twelve.value(0)<br>
+    thirteen.value(0)<br>
+    fourteen.value(0)<br>
+    fifteen.value(0)<br>
+    sixteen.value(0)<br>
+    sleep(1)<br>
     
-    one.value(0)
-    two.value(0)
-    three.value(0)
-    four.value(0)
-    five.value(0)
-    six.value(0)
-    seven.value(0)
-    eight.value(1)
-    nine.value(0)
-    ten.value(0)
-    eleven.value(0)
-    twelve.value(0)
-    thirteen.value(0)
-    fourteen.value(0)
-    fifteen.value(0)
-    sixteen.value(0)
-    sleep(1)
+    one.value(0)<br>
+    two.value(0)<br>
+    three.value(0)<br>
+    four.value(0)<br>
+    five.value(0)<br>
+    six.value(1)<br>
+    seven.value(0)<br>
+    eight.value(0)<br>
+    nine.value(0)<br>
+    ten.value(0)<br>
+    eleven.value(0)<br>
+    twelve.value(0)<br>
+    thirteen.value(0)<br>
+    fourteen.value(0)<br>
+    fifteen.value(0)<br>
+    sixteen.value(0)<br>
+    sleep(1)<br>
     
-    one.value(0)
-    two.value(0)
-    three.value(0)
-    four.value(0)
-    five.value(0)
-    six.value(0)
-    seven.value(0)
-    eight.value(0)
-    nine.value(1)
-    ten.value(0)
-    eleven.value(0)
-    twelve.value(0)
-    thirteen.value(0)
-    fourteen.value(0)
-    fifteen.value(0)
-    sixteen.value(0)
-    sleep(1)
-    
-    one.value(0)
-    two.value(0)
-    three.value(0)
-    four.value(0)
-    five.value(0)
-    six.value(0)
-    seven.value(0)
-    eight.value(0)
-    nine.value(0)
-    ten.value(1)
-    eleven.value(0)
-    twelve.value(0)
-    thirteen.value(0)
-    fourteen.value(0)
-    fifteen.value(0)
-    sixteen.value(0)
-    sleep(1)
-    
-    one.value(0)
-    two.value(0)
-    three.value(0)
-    four.value(0)
-    five.value(0)
-    six.value(0)
-    seven.value(0)
-    eight.value(0)
-    nine.value(0)
-    ten.value(0)
-    eleven.value(1)
-    twelve.value(0)
-    thirteen.value(0)
-    fourteen.value(0)
-    fifteen.value(0)
-    sixteen.value(0)
-    sleep(1)
-    
-    one.value(0)
-    two.value(0)
-    three.value(0)
-    four.value(0)
-    five.value(0)
-    six.value(0)
-    seven.value(0)
-    eight.value(0)
-    nine.value(0)
-    ten.value(0)
-    eleven.value(0)
-    twelve.value(1)
-    thirteen.value(0)
-    fourteen.value(0)
-    fifteen.value(0)
-    sixteen.value(0)
-    sleep(1)
+    one.value(0)<br>
+    two.value(0)<br>
+    three.value(0)<br>
+    four.value(0)<br>
+    five.value(0)<br>
+    six.value(0)<br>
+    seven.value(1)<br>
+    eight.value(0)<br>
+    nine.value(0)<br>
+    ten.value(0)<br>
+    eleven.value(0)<br>
+    twelve.value(0)<br>
+    thirteen.value(0)<br>
+    fourteen.value(0)<br>
+    fifteen.value(0)<br>
+    sixteen.value(0)<br>
+    sleep(1)<br>
     
     
-    one.value(0)
-    two.value(0)
-    three.value(0)
-    four.value(0)
-    five.value(0)
-    six.value(0)
-    seven.value(0)
-    eight.value(0)
-    nine.value(0)
-    ten.value(0)
-    eleven.value(0)
-    twelve.value(0)
-    thirteen.value(1)
-    fourteen.value(0)
-    fifteen.value(0)
-    sixteen.value(0)
-    sleep(1)
     
-    one.value(0)
-    two.value(0)
-    three.value(0)
-    four.value(0)
-    five.value(0)
-    six.value(0)
-    seven.value(0)
-    eight.value(0)
-    nine.value(0)
-    ten.value(0)
-    eleven.value(0)
-    twelve.value(0)
-    thirteen.value(0)
-    fourteen.value(1)
-    fifteen.value(0)
-    sixteen.value(0)
-    sleep(1)
+    one.value(0)<br>
+    two.value(0)<br>
+    three.value(0)<br>
+    four.value(0)<br>
+    five.value(0)<br>
+    six.value(0)<br>
+    seven.value(0)<br>
+    eight.value(1)<br>
+    nine.value(0)<br>
+    ten.value(0)<br>
+    eleven.value(0)<br>
+    twelve.value(0)<br>
+    thirteen.value(0)<br>
+    fourteen.value(0)<br>
+    fifteen.value(0)<br>
+    sixteen.value(0)<br>
+    sleep(1)<br>
     
-    one.value(0)
-    two.value(0)
-    three.value(0)
-    four.value(0)
-    five.value(0)
-    six.value(0)
-    seven.value(0)
-    eight.value(0)
-    nine.value(0)
-    ten.value(0)
-    eleven.value(0)
-    twelve.value(0)
-    thirteen.value(0)
-    fourteen.value(0)
-    fifteen.value(1)
-    sixteen.value(0)
-    sleep(1)
+    one.value(0)<br>
+    two.value(0)v<br>
+    three.value(0)<br>
+    four.value(0)<br>
+    five.value(0)<br>
+    six.value(0)<br>
+    seven.value(0)<br>
+    eight.value(0)<br>
+    nine.value(1)<br>
+    ten.value(0)<br>
+    eleven.value(0)<br>
+    twelve.value(0)<br>
+    thirteen.value(0)<br>
+    fourteen.value(0)<br>
+    fifteen.value(0)<br>
+    sixteen.value(0)<br>
+    sleep(1)<br>
     
-    one.value(0)
-    two.value(0)
-    three.value(0)
-    four.value(0)
-    five.value(0)
-    six.value(0)
-    seven.value(0)
-    eight.value(0)
-    nine.value(0)
-    ten.value(0)
-    eleven.value(0)
-    twelve.value(0)
-    thirteen.value(0)
-    fourteen.value(0)
-    fifteen.value(0)
-    sixteen.value(1)
+    one.value(0)<br>
+    two.value(0)<br>
+    three.value(0)<br>
+    four.value(0)<br>
+    five.value(0)<br>
+    six.value(0)<br>
+    seven.value(0)<br>
+    eight.value(0)<br>
+    nine.value(0)<br>
+    ten.value(1)<br>
+    eleven.value(0)<br>
+    twelve.value(0)<br>
+    thirteen.value(0)<br>
+    fourteen.value(0)<br>
+    fifteen.value(0)<br>
+    sixteen.value(0)<br>
+    sleep(1)<br>
+    
+    one.value(0)<br>
+    two.value(0)<br>
+    three.value(0)<br>
+    four.value(0)<br>
+    five.value(0)<br>
+    six.value(0)<br>
+    seven.value(0)<br>
+    eight.value(0)<br>
+    nine.value(0)<br>
+    ten.value(0)<br>
+    eleven.value(1)<br>
+    twelve.value(0)<br>
+    thirteen.value(0)<br>
+    fourteen.value(0)<br>
+    fifteen.value(0)<br>
+    sixteen.value(0)<br>
+    sleep(1)<br>
+    
+    one.value(0)<br>
+    two.value(0)<br>
+    three.value(0)<br>
+    four.value(0)<br>
+    five.value(0)<br>
+    six.value(0)<br>
+    seven.value(0)<br>
+    eight.value(0)v<br>
+    nine.value(0)<br>
+    ten.value(0)<br>
+    eleven.value(0)<br>
+    twelve.value(1)<br>
+    thirteen.value(0)<br>
+    fourteen.value(0)<br>
+    fifteen.value(0)<br>
+    sixteen.value(0)<br>
+    sleep(1)<br>
+    
+    
+    one.value(0)<br>
+    two.value(0)<br>
+    three.value(0)<br>
+    four.value(0)<br>
+    five.value(0)<br>
+    six.value(0)<br>
+    seven.value(0)<br>
+    eight.value(0)<br>
+    nine.value(0)<br>
+    ten.value(0)<br>
+    eleven.value(0)<br>
+    twelve.value(0)<br>
+    thirteen.value(1)<br>
+    fourteen.value(0)<br>
+    fifteen.value(0)<br>
+    sixteen.value(0)<br>
+    sleep(1)<br>
+
+    one.value(0)<br>
+    two.value(0)<br>
+    three.value(0)<br>
+    four.value(0)<br>
+    five.value(0)<br>
+    six.value(0)<br>
+    seven.value(0)<br>
+    eight.value(0)<br>
+    nine.value(0)<br>
+    ten.value(0)<br>
+    eleven.value(0)<br>
+    twelve.value(0)<br>
+    thirteen.value(0<br>)
+    fourteen.value(1)<br>
+    fifteen.value(0)<br>
+    sixteen.value(0)<br>
+    sleep(1)<br>
+    
+    one.value(0)<br>
+    two.value(0)<br>
+    three.value(0)<br>
+    four.value(0)<br>
+    five.value(0)v<br>
+    six.value(0)<br>
+    seven.value(0)<br>
+    eight.value(0)<br>
+    nine.value(0)<br>
+    ten.value(0)<br>
+    eleven.value(0)<br>
+    twelve.value(0)<br>
+    thirteen.value(0)<br>
+    fourteen.value(0)<br>
+    fifteen.value(1)<br>
+    sixteen.value(0)<br>
+    sleep(1)<br>
+
+    one.value(0)<br>
+    two.value(0)<br>
+    three.value(0)<br>
+    four.value(0)<br>
+    five.value(0)<br>
+    six.value(0)v<br>
+    seven.value(0)<br>
+    eight.value(0)<br>
+    nine.value(0)v<br>
+    ten.value(0)<br>
+    eleven.value(0)<br>
+    twelve.value(0)<br>
+    thirteen.value(0)<br>
+    thirteen.value(0)<br>
+    thirteen.value(0)<br>
+    thirteen.value(0)<br>
+    fourteen.value(0)<br>
+    fifteen.value(0)<br>
+    sixteen.value(1)<br>
     sleep(1)</code>
 
     <P>Sensor- a device that detect/ senses physical phenomenon then reacts to it in a particular way.<br>It converts physical attributes to electric signal.eg.Utrasonic sensor which sends out soundwaves and measures the time it takes for the sound to be reflected back.<br>Passive infrared sensor- detects a change in infrared radiation and generates a digital output signal.
       
    Actuator- is a part of a device that achieves physical movement by converting energy to mechanical force.<br>it controls movement or positioning.</p>
-Examp
+
    <p>Here is a simple project using an ultrasonic sensor</p>
 
-<code>from machine import Pin
-  import utime
+  <p> <code>from machine import Pin<br>
+    import utime<br>
   
-  trigger = Pin(3, Pin.OUT)
-  echo = Pin(2, Pin.IN)
-  led =Pin(4, Pin.OUT)
-  buzzer= Pin(5, Pin.OUT)
-  led.value(0)
-  buzzer.value(0)
+  trigger = Pin(3, Pin.OUT)<br>
+  echo = Pin(2, Pin.IN)<br>
+  led =Pin(4, Pin.OUT)<br>
+  buzzer= Pin(5, Pin.OUT)<br>
+  led.value(0)<br>
+  buzzer.value(0)<br>
   
-  def ultra():
-      trigger.low()
-      utime.sleep_us(2)
-      trigger.high()
-      utime.sleep_us(5)
-      trigger.low()
+  def ultra():<br>
+      trigger.low()<br>
+      utime.sleep_us(2)<br>
+      trigger.high()<br>
+      utime.sleep_us(5)<br>
+      trigger.low()<br>
   
-      while echo.value() == 0:
-          signaloff = utime.ticks_us()
+      while echo.value() == 0:<br>
+          signaloff = utime.ticks_us()<br>
   
-      while echo.value() == 1:
-          signalon = utime.ticks_us()
+      while echo.value() == 1:<br.
+          signalon = utime.ticks_us()<br>
   
-      timepassed = signalon - signaloff
-      distance = (timepassed * 0.0343) / 2
-      return distance
+      timepassed = signalon - signaloff<br.
+      distance = (timepassed * 0.0343) / 2<br.>
+      return distance<br>
   
-  while True:
-      measured_distance = ultra()
-      if measured_distance <= 50:
-          print("The distance from the object is ", measured_distance, "cm")
-          led.value(1)
-          buzzer.value(1)
-          utime.sleep(1)
-          led.value(0)
-          buzzer.value(0)
-          break
+  while True:<br>
+      measured_distance = ultra()<br>
+      if measured_distance <= 50:<br>
+          print("The distance from the object is ", measured_distance, "cm")<br>
+          led.value(1)<br>
+          buzzer.value(1)<br>
+          utime.sleep(1)<br>
+          led.value(0)<br>
+          buzzer.value(0)<br>
+          break<br>
       
-      utime.sleep(1)</code>
+      utime.sleep(1)</code> </p>
 
 
 </body>
