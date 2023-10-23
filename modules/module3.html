@@ -5,7 +5,8 @@
 </head>
 <body>
 
-<h1>Embedded Systems [III]<br>Arduino IDE and programming ESP32</h1>
+<h1>Embedded Systems [III]</h1>
+<h2>Arduino IDE and programming ESP32</h2>
 <p><b>Arduino IDE</b> is an intergrated development environment for programming Arduino boards.<br>Its a powerful micro-controller module and versatile tool that makes it easy to create and program interactive electronic projects.</p>
 
  <p>ESP32 is a highly capable microcontroller with a wide range of features and capabilities such as dual cores,low power consumption <br>and compatibility with development frameworks which makes it a preffered choice for IoT applications.</p>
@@ -17,6 +18,32 @@
 
 
 <p><b>Traffic lights LED based project with ESP32</b></p>
+<code>const int led_green = 23; // Define the pin for the yellow LED
+  const int led_yellow = 22; // Define the pin for the red LED
+  const int led_red = 21; // Define the pin for the green LED
+  
+  void setup() {
+    pinMode(led_yellow, OUTPUT); // Set the yellow LED pin as an output
+    pinMode(led_red, OUTPUT); // Set the red LED pin as an output
+    pinMode(led_green, OUTPUT); // Set the green LED pin as an output
+  }
+  
+  void loop() {
+    digitalWrite(led_green, HIGH); // Turn on the green LED
+    digitalWrite(led_yellow, LOW);
+    digitalWrite(led_red, LOW);
+    delay(1000); // Wait for 1 second
+   
+    digitalWrite(led_green, LOW);
+    digitalWrite(led_yellow, HIGH); // Turn on the yellow LED
+    digitalWrite(led_red, LOW);
+    delay(1000);
+   
+    digitalWrite(led_green, LOW);
+    digitalWrite(led_yellow, LOW);
+    digitalWrite(led_red, HIGH); // Turn on the red LED
+    delay(1000);
+  }</code>
 
 <img src="../images/esp traffic.jpg" width="250" height="200">
 

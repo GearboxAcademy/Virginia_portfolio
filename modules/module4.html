@@ -13,8 +13,8 @@
 <p>I2C protocol uses two wires: the SDA(serial Data Line) and SCL (Serial Clock Line) to facilitate communication.<br> SDA is used for transmitting and receiving data, while SCL is used  data transfer between devices.</p>
 <p>It supports multi-master and multi-slave communication where the master device initiates communication<br>and the slave acts/responds to the master's commands</p>
 <p>Has 2 different kinds of ids: <br>I2c1 <br>I2c0</p>
-
 <p>Also it reduces the amout of pinouts required for communication.</p>
+
 
 <p><b>UART</b>is short for Universal Asynchronus Reciever/Transmitter. </p>
 <p>it defines a protocol or set of rules for exchanging serial data between 2 devices. </p>
@@ -23,12 +23,52 @@
 <p>UART is a stand alone ic or physical circuit in a micro-controller.</p>
 <p>It is ideal for lowpower and long distance communication and it is <b> NOT</b> a protocol.</p>
 
-<p><b>SPI</b> Serial Periphal Interface</p>
+
+<p><b>SPI</b> {Serial Periphal Interface}</p>
 <p>Sends data between a micro-controller and 1 or more intergrated circuit</p>
 <p>it is full duplex (data is transmitted and recieved at the same time in high speed)</p>
 <p>it is a single master and multi-slave type of communication where each slave has a (ss)slave select line which is used for selecting the desired slave for communication.</p>
 <p>it is synchronus therefore it relies on an external clock.</p>
 
+
+<p><b>interfacing OLED& AHT10 to PI PICO using I2c</b></p>
+<p><code>from machine import Pin, SPI<br>
+    from machine import Pin, I2C<br>
+    from ssd1306 import SSD1306_SPI<br>
+    import framebuf
+    import time
+    from time import sleep
+    import ahtx0
+    
+    # Create I2C object
+    sda = Pin(26)
+    scl = Pin(27)
+    i2c = I2C(1, scl=scl, sda=sda)
+    
+    # Create the sensor object using I2C
+    sensor = ahtx0.AHT10(i2c)
+    
+    spi = SPI(0, 100000, mosi=Pin(19), sck=Pin(18))
+    oled = SSD1306_SPI(128, 64, spi, Pin(17), Pin(20), Pin(16))
+    
+    while True:
+        temperature = round(sensor.temperature, 2)
+        humidity = round(sensor.relative_humidity, 2)
+    
+        oled.fill(0)
+        oled.text("Temp: {:.2f} C".format(temperature), 0, 10)
+        oled.text("Humidity: {:.2f} %".format(humidity), 0, 30)
+        oled.show()
+        time.sleep(5)</code></p>
+
+        
+    <img src="../images/aht1o .jpg" width="250" height="200">
+
+    <video width="320" height="240" controls>
+        <source src="../videos/AHT10 &OLED.mp4" type ="video/mp4">
+      Your browser does not support the video tag.
+      </video>>
+    
 
 
 
