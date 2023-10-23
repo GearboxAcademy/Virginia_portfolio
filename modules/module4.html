@@ -6,9 +6,9 @@
 <body>
 
 <h1>Microcontroller Programming and Access Control Systems</h1>
-<p><b>Communication protocols</b></p>
+<h2>Communication protocols</h2>
 
-<p><b>I2c</b> {Inter-intergrated circuit} its a communication protocol that allows multiple electronic devices to<br> communicate with each other using a serial interface.</p>
+<h3>I2c</h3><br> {Inter-intergrated circuit} its a communication protocol that allows multiple electronic devices to<br> communicate with each other using a serial interface.</p>
 
 <p>I2C protocol uses two wires: the SDA(serial Data Line) and SCL (Serial Clock Line) to facilitate communication.<br> SDA is used for transmitting and receiving data, while SCL is used  data transfer between devices.</p>
 <p>It supports multi-master and multi-slave communication where the master device initiates communication<br>and the slave acts/responds to the master's commands</p>
@@ -16,7 +16,7 @@
 <p>Also it reduces the amout of pinouts required for communication.</p>
 
 
-<p><b>UART</b>is short for Universal Asynchronus Reciever/Transmitter. </p>
+<h4>UART</h4> <br>is short for Universal Asynchronus Reciever/Transmitter. </p>
 <p>it defines a protocol or set of rules for exchanging serial data between 2 devices. </p>
 <p>main purpose is to transmit and recieve serial data and does not rely on an external clock.</p>
 
@@ -24,7 +24,7 @@
 <p>It is ideal for lowpower and long distance communication and it is <b> NOT</b> a protocol.</p>
 
 
-<p><b>SPI</b> {Serial Periphal Interface}</p>
+<h5>SPI {Serial Periphal Interface}</h5>
 <p>Sends data between a micro-controller and 1 or more intergrated circuit</p>
 <p>it is full duplex (data is transmitted and recieved at the same time in high speed)</p>
 <p>it is a single master and multi-slave type of communication where each slave has a (ss)slave select line which is used for selecting the desired slave for communication.</p>
@@ -32,33 +32,41 @@
 
 
 <p><b>interfacing OLED& AHT10 to PI PICO using I2c</b></p>
+
+
 <p><code>from machine import Pin, SPI<br>
     from machine import Pin, I2C<br>
     from ssd1306 import SSD1306_SPI<br>
-    import framebuf
-    import time
-    from time import sleep
-    import ahtx0
+    import framebuf<br>
+    import time<br>
+    from time import sleep<br>
+    import ahtx0<br></code></p>
+
     
-    # Create I2C object
-    sda = Pin(26)
-    scl = Pin(27)
-    i2c = I2C(1, scl=scl, sda=sda)
+    <p># Create I2C object<br>
+    scl = Pin(27)<br>
+    sda = Pin(26)<br>
+    scl = Pin(27)<br>
+    i2c = I2C(1, scl=scl, sda=sda)<br></p>
     
-    # Create the sensor object using I2C
-    sensor = ahtx0.AHT10(i2c)
     
-    spi = SPI(0, 100000, mosi=Pin(19), sck=Pin(18))
-    oled = SSD1306_SPI(128, 64, spi, Pin(17), Pin(20), Pin(16))
+    <p># Create the sensor object using I2C<br>
+    sensor = ahtx0.AHT10(i2c)<br></p>
+
     
-    while True:
-        temperature = round(sensor.temperature, 2)
-        humidity = round(sensor.relative_humidity, 2)
+    <p>spi = SPI(0, 100000, mosi=Pin(19), sck=Pin(18))<br>
+    oled = SSD1306_SPI(128, 64, spi, Pin(17), Pin(20), Pin(16))<br></p>
     
-        oled.fill(0)
-        oled.text("Temp: {:.2f} C".format(temperature), 0, 10)
-        oled.text("Humidity: {:.2f} %".format(humidity), 0, 30)
-        oled.show()
+    
+    <p>while True:<br>
+        temperature = round(sensor.temperature, 2)<br>
+        humidity = round(sensor.relative_humidity, 2)<br></p>
+    
+        
+        <p>oled.fill(0)<br>
+        oled.text("Temp: {:.2f} C".format(temperature), 0, 10)<br>
+        oled.text("Humidity: {:.2f} %".format(humidity), 0, 30)<br>
+        oled.show()<br>
         time.sleep(5)</code></p>
 
         
