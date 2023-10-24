@@ -9,7 +9,6 @@
 <h2>Communication protocols</h2>
 
 <h3>I2c</h3><br> {Inter-intergrated circuit} its a communication protocol that allows multiple electronic devices to<br> communicate with each other using a serial interface.</p>
-
 <p>I2C protocol uses two wires: the SDA(serial Data Line) and SCL (Serial Clock Line) to facilitate communication.<br> SDA is used for transmitting and receiving data, while SCL is used  data transfer between devices.</p>
 <p>It supports multi-master and multi-slave communication where the master device initiates communication<br>and the slave acts/responds to the master's commands</p>
 <p>Has 2 different kinds of ids: <br>I2c1 <br>I2c0</p>
@@ -17,8 +16,8 @@
 
 
 <h4>UART</h4> <br>is short for Universal Asynchronus Reciever/Transmitter. </p>
-<p>it defines a protocol or set of rules for exchanging serial data between 2 devices. </p>
-<p>main purpose is to transmit and recieve serial data and does not rely on an external clock.</p>
+<p>It defines a protocol or set of rules for exchanging serial data between 2 devices. </p>
+<p> The main purpose is to transmit and recieve serial data and does not rely on an external clock.</p>
 
 <p>UART is a stand alone ic or physical circuit in a micro-controller.</p>
 <p>It is ideal for lowpower and long distance communication and it is <b> NOT</b> a protocol.</p>
@@ -31,7 +30,7 @@
 <p>it is synchronus therefore it relies on an external clock.</p>
 
 
-<p><b>interfacing OLED& AHT10 to PI PICO using I2c</b></p>
+<p><b>Interfacing OLED& AHT10 to PI PICO using I2c</b></p>
 
 
 <p><code>from machine import Pin, SPI<br>
@@ -57,12 +56,10 @@
     <p>spi = SPI(0, 100000, mosi=Pin(19), sck=Pin(18))<br>
     oled = SSD1306_SPI(128, 64, spi, Pin(17), Pin(20), Pin(16))<br></p>
     
-    
     <p>while True:<br>
         temperature = round(sensor.temperature, 2)<br>
         humidity = round(sensor.relative_humidity, 2)<br></p>
     
-        
         <p>oled.fill(0)<br>
         oled.text("Temp: {:.2f} C".format(temperature), 0, 10)<br>
         oled.text("Humidity: {:.2f} %".format(humidity), 0, 30)<br>

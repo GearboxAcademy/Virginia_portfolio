@@ -25,26 +25,28 @@
   
   <p>void setup() {<br>
     pinMode(led_yellow, OUTPUT); // Set the yellow LED pin as an output<br>
-    pinMode(led_red, OUTPUT); // Set the red LED pin as an output
-    pinMode(led_green, OUTPUT); // Set the green LED pin as an output
-  }
+    pinMode(led_red, OUTPUT); // Set the red LED pin as an output,<br>
+    pinMode(led_green, OUTPUT); // Set the green LED pin as an output<br>
+  }</p>
   
-  void loop() {
-    digitalWrite(led_green, HIGH); // Turn on the green LED
-    digitalWrite(led_yellow, LOW);
-    digitalWrite(led_red, LOW);
-    delay(1000); // Wait for 1 second
+    
+  <p>>void loop() {<br>
+    digitalWrite(led_green, HIGH); // Turn on the green LED<br>
+    digitalWrite(led_yellow, LOW);<br>
+    digitalWrite(led_red, LOW);<br>
+    delay(1000); // Wait for 1 second<br></p>
+
    
-    digitalWrite(led_green, LOW);
-    digitalWrite(led_yellow, HIGH); // Turn on the yellow LED
-    digitalWrite(led_red, LOW);
-    delay(1000);
+    <p>digitalWrite(led_green, LOW);<br>
+    digitalWrite(led_yellow, HIGH); // Turn on the yellow LED<br>
+    digitalWrite(led_red, LOW);<br>
+    delay(1000);<br></p>
    
-    digitalWrite(led_green, LOW);
-    digitalWrite(led_yellow, LOW);
-    digitalWrite(led_red, HIGH); // Turn on the red LED
-    delay(1000);
-  }</code>
+    
+    <p>digitalWrite(led_green, LOW);<br>
+    digitalWrite(led_yellow, LOW);<br>
+    digitalWrite(led_red, HIGH); // Turn on the red LED<br>
+    delay(1000);<br>}</code></p>
 
 <img src="../images/esp traffic.jpg" width="250" height="200">
 
