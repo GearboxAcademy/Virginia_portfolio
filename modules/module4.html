@@ -478,15 +478,13 @@ MFRC522 rfid(SDA_PIN, RST_PIN);   // Create MFRC522 instance</p>
         
         <p>else if(uid=="9621916220" )<br>
         {<br>
-         Serial.println("Virginia Njeri");<br> 
+          
          <br>
          digitalWrite(LED_GREEN, HIGH);<br> 
          delay(3000); <br>
          digitalWrite(LED_GREEN, LOW);</p>
 
-        <p>}<br>
-        else {<br>
-        Serial.println("Unregistered user");</p>
+        <p>}</p>
 
          <p>digitalWrite(LED_RED, HIGH);<br> 
          digitalWrite(BUZZER, HIGH); <br>
@@ -501,7 +499,6 @@ MFRC522 rfid(SDA_PIN, RST_PIN);   // Create MFRC522 instance</p>
   rfid.PCD_StopCrypto1();<br>
 }</code></p>
 
-<img src="../images/esp32 +buzzer+RFID+LED.MP4" width="300" height="200">
 
 <video width="320" height="240" controls>
   <source src="../videos/esp32 +buzzer+RFID+LED.mp4" type ="video/mp4">
