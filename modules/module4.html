@@ -8,30 +8,71 @@
 <h1>Microcontroller Programming and Access Control Systems</h1>
 <h2>Communication protocols</h2>
 
-<h3>I2c</h3><br> {Inter-intergrated circuit} its a communication protocol that allows multiple electronic devices to<br> communicate with each other using a serial interface.</p>
+<h3>I2c</h3>{Inter-intergrated circuit} its a communication protocol that allows multiple electronic devices to<br> communicate with each other using a serial interface.</p>
 <p>I2C protocol uses two wires: the SDA(serial Data Line) and SCL (Serial Clock Line) to facilitate communication.<br> SDA is used for transmitting and receiving data, while SCL is used  data transfer between devices.</p>
 <p>It supports multi-master and multi-slave communication where the master device initiates communication<br>and the slave acts/responds to the master's commands</p>
 <p>Has 2 different kinds of ids: <br>I2c1 <br>I2c0</p>
 <p>Also it reduces the amout of pinouts required for communication.</p>
 
 
-<h4>UART</h4> <br>is short for Universal Asynchronus Reciever/Transmitter. </p>
+<h4>UART</h4> is short for Universal Asynchronus Reciever/Transmitter. </p>
 <p>It defines a protocol or set of rules for exchanging serial data between 2 devices. </p>
 <p> The main purpose is to transmit and recieve serial data and does not rely on an external clock.</p>
-
 <p>UART is a stand alone ic or physical circuit in a micro-controller.</p>
 <p>It is ideal for lowpower and long distance communication and it is <b> NOT</b> a protocol.</p>
 
 
 <h5>SPI {Serial Periphal Interface}</h5>
 <p>Sends data between a micro-controller and 1 or more intergrated circuit</p>
-<p>it is full duplex (data is transmitted and recieved at the same time in high speed)</p>
-<p>it is a single master and multi-slave type of communication where each slave has a (ss)slave select line which is used for selecting the desired slave for communication.</p>
-<p>it is synchronus therefore it relies on an external clock.</p>
+<p>It is full duplex (data is transmitted and recieved at the same time in high speed)</p>
+<p>It is a single master and multi-slave type of communication where each slave has a (ss)slave select line which is used for selecting the desired slave for communication.</p>
+<p>It is synchronus therefore it relies on an external clock.</p>
 
+<p><b>SPI PROJECTS<b></p>
+<p><b>Interfacing PI PICO with RFID  using SPI<b></p>
 
-<p><b>Interfacing OLED& AHT10 to PI PICO using I2c</b></p>
+<p>from machine import Pin<br>
+    from mfrc522 import MFRC522<br>
+    import utime<br></p>
+           
+    <p>reader = MFRC522(spi_id=0,sck=2,miso=4,mosi=3,cs=1,rst=0)</p>
 
+    <p>led_green = Pin(6, Pin.OUT)<br>
+    led_red = Pin(7, Pin.OUT)<br>
+    #blue = Pin(11, Pin.OUT)</p>
+    
+    <p>print("Bring RFID TAG Closer...")<br>
+    print("")</p>
+    
+    
+    <p>while True:<br>
+        reader.init()<br>
+        (stat, tag_type) = reader.request(reader.REQIDL)<br>
+        if stat == reader.OK:<br>
+            (stat, uid) = reader.SelectTagSN()<br>
+            if stat == reader.OK:<br>
+                card = int.from_bytes(bytes(uid),"little",False)</p>
+               
+                <p>if card == 346217312:<br>
+                    print("Card ID: "+ str(card)+" PASS: Green Light Activated")<br>
+                    led_red.value(0)<br>
+                    led_green.value(1)<br>
+                    #blue.value(0)</p>
+                   
+                   
+                <p>elif card == 410761305:<br>
+                    print("Card ID: "+ str(card)+" PASS: Blue Light Activated")<br>
+                    led_red.value(0)<br>
+                    led_green.value(1)<br>
+                    #blue.value(1)</p>
+                   
+                <p>else:<br>
+                    print("Card ID: "+ str(card)+" UNKNOWN CARD! Red Light Activated")<br>
+                    led_red.value(1)<br>
+                    led_green.value(0)<br>
+                    #blue.value(0)</p>
+
+<p><b>Interfacing OLED to PI PICO using SPI</b></p>
 
 <p><code>from machine import Pin, SPI<br>
     from machine import Pin, I2C<br>
@@ -73,6 +114,402 @@
         <source src="../videos/AHT10 &OLED.mp4" type ="video/mp4">
       Your browser does not support the video tag.
       </video>>
+
+      
+      <p><b>Interfacing ESP32 and OLED with spi<b></p>
+
+        <p><code>#include <SPI.h>
+            #include <Wire.h><br>
+            #include <Adafruit_GFX.h><br>
+            #include <Adafruit_SSD1306.h><br>
+            
+            <p>#define SCREEN_WIDTH 128<br>
+            #define SCREEN_HEIGHT 64</p>
+            
+            <p>#define OLED_MOSI   23<br>
+            #define OLED_CLK    18<br>
+            #define OLED_DC     16<br>
+            #define OLED_CS     5<br>
+            #define OLED_RESET  17</p>
+            
+            <p>Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT,<br>
+              OLED_MOSI, OLED_CLK, OLED_DC, OLED_RESET, OLED_CS);</p>
+            
+           <p>const unsigned char electronicshub_logo [] PROGMEM = {<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>           0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0f, 0xff, 0xff, 0xff, 0x80,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0f, 0xff, 0xff, 0xff, 0x80,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0f, 0xff, 0xff, 0xff, 0x80,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0f, 0xff, 0xff, 0xff, 0x80,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0f, 0xff, 0xff, 0xff, 0x80,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0f, 0xff, 0xff, 0xff, 0x80,<br>
+              0x03, 0xe0, 0x07, 0xc3, 0x87, 0xcf, 0x03, 0x02, 0x11, 0x07, 0x04, 0x0f, 0xbd, 0xbd, 0xc7, 0x80,<br>
+              0x03, 0xe4, 0x07, 0xc3, 0xc7, 0xcf, 0x07, 0x82, 0x11, 0x07, 0x8e, 0x0f, 0xbd, 0xbd, 0xc7, 0x80,<br>
+              0x02, 0x04, 0x04, 0x06, 0xc1, 0x01, 0x84, 0xc2, 0x11, 0x0d, 0x8a, 0x0f, 0xbd, 0xbd, 0xf3, 0x80,<br>
+              0x02, 0x04, 0x04, 0x04, 0x61, 0x00, 0x88, 0x42, 0x11, 0x08, 0x8a, 0x0f, 0xbd, 0xbd, 0xfb, 0x80,<br>
+              0x02, 0x04, 0x04, 0x0c, 0x21, 0x00, 0x88, 0x43, 0x11, 0x10, 0x08, 0x0f, 0xbd, 0xbd, 0xfb, 0x80,<br>
+              0x02, 0x04, 0x04, 0x08, 0x01, 0x00, 0x88, 0x23, 0x11, 0x10, 0x08, 0x0f, 0xbd, 0xbd, 0xfb, 0x80,<br>
+              0x02, 0x04, 0x04, 0x08, 0x01, 0x00, 0x88, 0x23, 0x11, 0x10, 0x08, 0x0f, 0xbd, 0xbd, 0xfb, 0x80,<br>
+              0x02, 0x04, 0x04, 0x08, 0x01, 0x00, 0x90, 0x23, 0x11, 0x10, 0x08, 0x0f, 0xbd, 0xbd, 0xfb, 0x80,<br>
+              0x02, 0x04, 0x04, 0x08, 0x01, 0x00, 0x90, 0x22, 0x91, 0x10, 0x08, 0x0f, 0xbd, 0xbd, 0xf7, 0x80,<br>
+              0x02, 0x04, 0x04, 0x08, 0x01, 0x00, 0x90, 0x22, 0x91, 0x10, 0x0e, 0x0f, 0xbd, 0xbd, 0xc7, 0x80,<br>
+              0x03, 0x84, 0x07, 0x08, 0x01, 0x00, 0x90, 0x22, 0x91, 0x10, 0x06, 0x0f, 0x81, 0xbd, 0xc7, 0x80,<br>
+              0x03, 0x84, 0x07, 0x08, 0x01, 0x07, 0x90, 0x22, 0xd1, 0x10, 0x03, 0x0f, 0x81, 0xbd, 0xf7, 0x80,<br>
+              0x02, 0x04, 0x04, 0x08, 0x01, 0x07, 0x10, 0x22, 0x51, 0x10, 0x01, 0x0f, 0xbd, 0xbd, 0xfb, 0x80,<br>
+              0x02, 0x04, 0x04, 0x08, 0x01, 0x06, 0x10, 0x22, 0x51, 0x10, 0x01, 0x0f, 0xbd, 0xbd, 0xfb, 0x80,<br>
+              0x02, 0x04, 0x04, 0x08, 0x01, 0x02, 0x10, 0x22, 0x51, 0x10, 0x01, 0x0f, 0xbd, 0xbd, 0xfb, 0x80,<br>
+              0x02, 0x04, 0x04, 0x08, 0x01, 0x02, 0x08, 0x22, 0x31, 0x10, 0x01, 0x0f, 0xbd, 0xbd, 0xfb, 0x80,<br>
+              0x02, 0x04, 0x04, 0x08, 0x01, 0x01, 0x08, 0x22, 0x31, 0x10, 0x01, 0x0f, 0xbd, 0xbd, 0xfb, 0x80,<br>
+              0x02, 0x04, 0x04, 0x0c, 0x21, 0x01, 0x08, 0x42, 0x31, 0x10, 0x01, 0x0f, 0xbd, 0xdb, 0xfb, 0x80,<br>
+              0x02, 0x04, 0x04, 0x04, 0x61, 0x01, 0x88, 0x42, 0x31, 0x08, 0x99, 0x0f, 0xbd, 0xdb, 0xf3, 0x80,<br>
+              0x02, 0x04, 0x04, 0x06, 0xc1, 0x00, 0x84, 0xc2, 0x11, 0x0d, 0x8b, 0x0f, 0xbd, 0xc3, 0xc7, 0x80,<br>
+              0x03, 0xe7, 0xc7, 0xc3, 0xc1, 0x00, 0x87, 0x82, 0x11, 0x07, 0x8e, 0x0f, 0xbd, 0xe7, 0xc7, 0x80,<br>
+              0x03, 0xe7, 0xc7, 0xc3, 0x81, 0x00, 0x83, 0x02, 0x11, 0x07, 0x06, 0x0f, 0xff, 0xff, 0xff, 0x80,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0f, 0xff, 0xff, 0xff, 0x80,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0f, 0xff, 0xff, 0xff, 0x80,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0f, 0xff, 0xff, 0xff, 0x80,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0f, 0xff, 0xff, 0xff, 0x80,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0f, 0xff, 0xff, 0xff, 0x80,<br>
+              0x07, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x80,<br>
+              0x07, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x80,<br>
+              0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x00, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x00, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x00, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x00, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x07, 0xf0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00<br>
+            };<br>
+            
+            void setup()<br>
+            {<br>
+              Serial.begin(115200);<br>
+              if(!display.begin(SSD1306_SWITCHCAPVCC))<br>
+              {
+                Servial.println(F("SSD1306 allocation failed"));<br>
+                for(;;);<br>
+              }
+             
+              display.clearDisplay();<br>
+              display.display();<br>
+              delay(1000);<br>
+            
+              display.clearDisplay();<br>
+              display.drawBitmap(0, 0, electronicshub_logo, SCREEN_WIDTH, SCREEN_HEIGHT, SSD1306_WHITE);<br>        display.display();
+              delay(1000);<br>
+             
+             
+            }
+            void loop()<br>
+            {
+              AllPixels();<br>
+              TextDisplay();<br>
+              InvertedTextDisplay();<br>
+              DisplayChars();<br>
+              TextSize();<br>
+              DrawRectangle();<br>
+              DrawFilledRectangle();<br>
+              DrawRoundRectangle();<br>
+              DrawFilledRoundRectangle();<br>
+              DrawCircle();<br>
+              DrawFilledCircle();<br>
+              DrawTriangle();<br>
+              DrawFilledTriangle();<br>
+            }</p>
+            
+            <p>void AllPixels()<br>
+            {<br>
+              int i;<br>
+              int j;<br>
+              display.clearDisplay();<br>
+              for(i=0;i<64;i++)<br>
+              {</p>
+                <p>for(j=0;j<128;j++)<br>
+                {<br>
+                  display.drawPixel(j, i, SSD1306_WHITE);</p>
+                 
+                <p>}<br>
+                display.display();<br>
+                delay(30);<br>
+              }</p>
+             
+              <p>for(i=0;i<64;i++)<br>
+              {<br>
+                for(j=0;j<128;j++)<br>
+                {<br>
+                  display.drawPixel(j, i, SSD1306_BLACK);<br>
+                 
+                <p>}<br>
+                display.display();<br>
+                delay(30);<br>
+              }</p>
+             
+            <p>}</p>
+            
+            <p>void TextDisplay()<br>
+            {<br>
+              display.clearDisplay();<br>
+              display.setTextSize(1);<br>
+              display.setTextColor(SSD1306_WHITE);<br>
+              display.setCursor(5,28);<br>
+              display.println("Electronics Hub");<br>
+              display.display();<br>
+              delay(3000);<br>
+            }</p>
+            
+            <p>void InvertedTextDisplay()<br>
+            {<br>
+              display.clearDisplay();<br>
+              display.setTextColor(SSD1306_BLACK, SSD1306_WHITE);<br>
+              display.setCursor(5,28);<br>
+              display.println("Electronics Hub");<br>
+              display.display();<br>
+              delay(3000);<br>
+            }</p>
+            
+            
+            
+            <p>void DisplayChars()<br>
+            {<br>
+              display.clearDisplay();<br>
+            
+              display.setTextSize(1);<br>
+              display.setTextColor(SSD1306_WHITE);<br>
+              display.setCursor(0, 0);<br>
+              display.cp437(true);</p>
+             
+              <p>for(int16_t i=0; i<256; i++)<br>
+              {<br>
+                if(i == '\n')<br>
+                {<br>
+                  display.write(' ');<br>
+                }<br>
+                else<br>
+                {<br>
+                  display.write(i);<br>
+                }<br>
+              }</p>
+            
+              <p>display.display();<br>
+              delay(4000);<br>
+            }<br>
+            void TextSize()<br>
+            {<br>
+              display.clearDisplay();</p>
+            
+              <p>display.setTextSize(1);<br>
+              display.setTextColor(SSD1306_WHITE);<br>
+              display.setCursor(0,0);<br>
+              display.println(F("Size: 1"));<br>
+              display.println(F("ABC"));</p>
+            
+              <p>display.setTextSize(2);<br>
+              display.setTextColor(SSD1306_WHITE);<br>
+              display.println("Size: 2");<br>
+              display.println(F("ABC"));</p>
+            
+              <p>display.display();<br>
+              delay(3000);<br>
+            }</p>
+            
+            <p>void DrawRectangle()<br>
+            {<br>
+              display.clearDisplay();<br>
+              display.setTextSize(1);<br>
+              display.setTextColor(WHITE);<br>
+              display.setCursor(0,0);<br>
+              display.println("Rectangle");<br>
+              display.drawRect(0, 15, 90, 45, SSD1306_WHITE);<br>
+              display.display();<br>
+              delay(2000);<br>
+            }</p>
+            
+            <p>void DrawFilledRectangle()<br>
+            {<br>
+              display.clearDisplay();<br>  
+              display.setTextSize(1);<br>
+              display.setTextColor(WHITE)<br>;
+              display.setCursor(0,0);<br>
+              display.println("Filled Rectangle");<br>
+              display.fillRect(0, 15, 90, 45, SSD1306_WHITE);<br>
+              display.display();<br>
+              delay(2000);</p>
+             
+            <p>}</p>
+            
+            <p>void DrawRoundRectangle()<br>
+            {<br>
+              display.clearDisplay();<br>
+              display.setTextSize(1);<br>
+              display.setTextColor(SSD1306_WHITE);<br>
+              display.setCursor(0,0);<br>
+              display.println("Round Rectangle");<br>
+              display.drawRoundRect(0, 15, 90, 45, 10, SSD1306_WHITE);<br>
+              display.display();<br>
+              delay(2000);<br>
+            }</p>
+            
+           <p>void DrawFilledRoundRectangle()<br>
+            {<br>
+              display.clearDisplay();<br>  
+              display.setTextSize(1);<br>
+              display.setTextColor(SSD1306_WHITE);<br>
+              display.setCursor(0,0);<br>
+              display.println("Filled Round Rect");<br>
+              display.fillRoundRect(0, 15, 90, 45, 10, SSD1306_WHITE);<br>
+              display.display();<br>
+              delay(2000);</p>
+             
+            <p>}</p>
+            
+            void DrawCircle()<br>
+            {<br>
+              display.clearDisplay();<br>
+              display.setTextSize(1);<br>
+              display.setTextSize(1);<br>
+              display.setTextSize(1);<br>
+              display.setTextColor(SSD1306_WHITE);<br>
+              display.setCursor(0,0);<br>
+              display.println("Circle");<br>
+              display.drawCircle(30, 36, 25, SSD1306_WHITE);<br>
+              display.display();<br>
+              delay(2000);<br>
+            }<br>
+            void DrawFilledCircle()<br>
+            {<br>
+              display.clearDisplay();<br>
+              display.setTextSize(1);<br>
+              display.setTextColor(SSD1306_WHITE);<br>
+              display.setCursor(0,0);<br>
+              display.println("Filled Circle");<br>
+              display.fillCircle(30, 36, 25, SSD1306_WHITE);<br>
+              display.display();<br>
+              delay(2000);</p>
+             
+            <p>}</p>
+            
+            <p>void DrawTriangle()<br>
+            {<br>
+              display.clearDisplay();<br>
+              display.setTextSize(1);<br>
+              display.setTextColor(SSD1306_WHITE);
+              display.setCursor(0,0);<br>
+              display.println("Triangle");<br>
+              display.drawTriangle(30, 15, 0, 60, 60, 60, SSD1306_WHITE);<br>
+              display.display();<br>
+              delay(2000);<br>  
+            }</p>
+            
+            <p>void DrawFilledTriangle()<br>
+            {<br>
+              display.clearDisplay();<br>
+              display.setTextSize(1);<br>
+              display.setTextColor(SSD1306_WHITE);<br>
+              display.setCursor(0,0);<br>
+              display.println("Filled Triangle");<br>
+              display.fillTriangle(30, 15, 0, 60, 60, 60, SSD1306_WHITE);<br>
+              display.display();<br>
+              delay(2000);<br>
+            }</p>
+             </code></p>
+  
+  <p><b>Interfacing ESP32+RFID +LED+ BUZZER with SPI<b></p>
+    <p><code>#include <SPI.h><br>
+#include <MFRC522.h></p>
+
+<p>#define RST_PIN 0     // Reset pin for RC522 module<br>
+#define SDA_PIN 5      // Slave Select pin for RC522 module<br>
+#define LED_GREEN 25<br>
+#define LED_RED 2<br>
+#define BUZZER 26<br>
+MFRC522 rfid(SDA_PIN, RST_PIN);   // Create MFRC522 instance</p>
+ 
+ 
+<p>void setup() {<br>
+  pinMode(LED_GREEN, OUTPUT);<br>
+  pinMode(LED_RED, OUTPUT);<br>
+  pinMode (BUZZER, OUTPUT);<br>
+  Serial.begin(9600);<br>
+  SPI.begin();<br>
+  rfid.PCD_Init();<br>
+  Serial.println("RFID Ready!");<br>
+  Serial.println("");<br>
+}</p>
+<p>void loop() {<br>
+  if (rfid.PICC_IsNewCardPresent() && rfid.PICC_ReadCardSerial()) {<br>
+    Serial.print("Card UID:");<br>
+    String uid = "";<br>
+    for (byte i = 0; i < rfid.uid.size; i++) {<br>
+      Serial.print(rfid.uid.uidByte[i] < 0x10 ? "0" : "");<br>
+      Serial.print(rfid.uid.uidByte[i], DEC);<br>
+      uid.concat(String(rfid.uid.uidByte[i] < 0x10 ? "0" : ""));<br>
+      uid.concat(String(rfid.uid.uidByte[i], DEC));<br>
+    }<br>
+    Serial.println("");<br>
+   if( uid =="9621916220" )<br>
+        {<br>
+         Serial.println("Virginia Njeri");</p>
+         
+         <p>digitalWrite(LED_GREEN, HIGH);<br> 
+         delay(3000); <br>
+         digitalWrite(LED_GREEN, LOW);<br>
+
+        }</p>
+        
+        <p>else if(uid=="9621916220" )<br>
+        {<br>
+         Serial.println("Virginia Njeri");<br> 
+         <br>
+         digitalWrite(LED_GREEN, HIGH);<br> 
+         delay(3000); <br>
+         digitalWrite(LED_GREEN, LOW);</p>
+
+        <p>}<br>
+        else {<br>
+        Serial.println("Unregistered user");</p>
+
+         <p>digitalWrite(LED_RED, HIGH);<br> 
+         digitalWrite(BUZZER, HIGH); <br>
+         delay(1000); <br>
+         digitalWrite(LED_RED, LOW);<br>
+         digitalWrite(BUZZER, LOW);<br>
+
+        <p>}</p>
+
+  <p>}<br>
+  rfid.PICC_HaltA();<br>
+  rfid.PCD_StopCrypto1();<br>
+}</code></p>
+
+<img src="../images/esp32 +buzzer+RFID+LED.MP4" width="300" height="200">
+
+<video width="320" height="240" controls>
+  <source src="../videos/esp32 +buzzer+RFID+LED.mp4" type ="video/mp4">
+Your browser does not support the video tag.
+
+
+
+</body>
     
 
 
