@@ -15,7 +15,6 @@
 <p>Also it reduces the amout of pinouts required for communication.</p>
 
 <p>I2c PROJECTS</p>
-
 <p><b>Interfacing OLED & AHT10 to PI PICO </b></p>
 
 <p><code>from machine import Pin, SPI<br>
@@ -141,7 +140,85 @@
         }</code></p>
 
         <p>Interfacing AHT10 and OLED with esp32</p>
-        <code></code>
+        <p><code>#include <Wire.h></p>
+
+<p>// Define AHT10 register addresses<br>
+#define AHT10_ADDR 0x38<br>
+#define CMD_MEASURE 0xAC<br>
+#define CMD_SOFTRESET 0xBA<br>
+#define STATUS_BUSY_MASK 0x80</p>
+
+<p>// Define I2C0 pins<br>
+#define SDA_PIN 21<br>
+#define SCL_PIN 22</p>
+
+<p>// Global variables for sensor data<br>
+float temperature = 0.0;<br>
+float humidity = 0.0;</p>
+
+<p>// Function to read AHT10 sensor<br>
+void readAHT10() {<br>
+  // Send measurement command to AHT10<br>
+  Wire.beginTransmission(AHT10_ADDR);<br>
+  Wire.write(CMD_MEASURE);<br>
+  Wire.write(0x33);<br>
+  Wire.write(0x00);<br>
+  Wire.endTransmission();</p>
+  
+  <p>// Wait for measurement to complete<br>
+  while (true) {<br>
+    Wire.beginTransmission(AHT10_ADDR);<br>
+    Wire.write(0x71);<br>
+    Wire.endTransmission(false);<br>
+    Wire.requestFrom(AHT10_ADDR, 1);<br>
+    if ((Wire.read() & STATUS_BUSY_MASK) == 0) break;<br>
+    delay(10);<br>
+  }</p>
+
+  <p>// Read measurement data from AHT10<br>
+  Wire.beginTransmission(AHT10_ADDR);<br>
+  Wire.write(0x00);<br>
+  Wire.endTransmission(false);<br>
+  Wire.requestFrom(AHT10_ADDR, 6);<br>
+  uint8_t msb = Wire.read();<br>
+  uint8_t lsb = Wire.read();<br>
+  uint8_t cksum = Wire.read();<br>
+  uint32_t raw_data = ((msb << 16) | (lsb << 8) | cksum) >> 4;</p>
+
+  <p>// Convert raw data to temperature and humidity<br>
+  temperature = (float)(raw_data * 200.0 / 1048576.0) - 50.0;<br>
+  humidity = (float)(raw_data * 100.0 / 1048576.0);<br>
+}</p>
+
+<p>void setup() {<br>
+  // Initialize serial communication<br>
+  Serial.begin(9600);</p>
+
+  <p>// Initialize I2C communication on I2C0 with custom SDA and SCL pins<br>
+  Wire.begin(SDA_PIN, SCL_PIN);</p>
+  
+  <p>// Soft reset AHT10<br>
+  Wire.beginTransmission(AHT10_ADDR);<br>
+  Wire.write(CMD_SOFTRESET);<br>
+  Wire.endTransmission();<br>
+  delay(20);<br>
+}</p>
+
+<p>void loop() {<br>
+  // Read data from AHT10<br>
+  readAHT10();</p>
+
+  <p>// Print temperature and humidity values to serial monitor<br>
+  Serial.print("Temperature: ");<br>
+  Serial.print(temperature, 2); // round to 2 decimal places<br>
+  Serial.print(" C, Humidity: ");<br>
+  Serial.print(humidity, 2); // round to 2 decimal places<br>
+  Serial.println(" %");</p>
+
+  <p>// Wait 1 second before taking another measurement<br>
+  delay(1000);<br>
+}<br>
+</code></p>
 
 
 <h4>UART</h4> is short for Universal Asynchronus Reciever/Transmitter. </p>
@@ -149,6 +226,37 @@
 <p> The main purpose is to transmit and recieve serial data and does not rely on an external clock.</p>
 <p>UART is a stand alone ic or physical circuit in a micro-controller.</p>
 <p>It is ideal for lowpower and long distance communication and it is <b> NOT</b> a protocol.</p>
+
+    <p>Interfacing RPI Pico and ESP32 using serial</p>
+    
+    <p><code>bool ledState=1; //variable used to save the state of LED<br>
+void setup() {<br>
+  Serial.begin(9600);// set baud rate to 9600<br>
+  pinMode(LED_BUILTIN, OUTPUT);<br>
+}</p>
+
+<p>void loop() {<br> 
+  if(Serial.read()== 't') {<br>
+  digitalWrite(LED_BUILTIN, ledState);<br>
+  ledState=!ledState;<br>
+  Serial.print('m'); //write 'm' to the UART<br>
+  }<br>
+}</code></p>
+
+    
+    <p><code>from machine import Pin,UART<br>
+import time<br>
+uart = UART(1, baudrate=9600, tx=Pin(4), rx=Pin(5))<br>
+uart.init(bits=8, parity=None, stop=2)<br>
+led = Pin("LED", Pin.OUT)</p>
+
+<p>while True:<br>
+    uart.write('t')<br>
+    if uart.any():<br>
+        data = uart.read()<br>
+        if data== b'm':<br>
+            led.toggle()<br>
+    time.sleep(1)</code></p>
 
 
 <h5>SPI {Serial Periphal Interface}</h5>
