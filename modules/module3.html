@@ -16,6 +16,20 @@
 <p><b>An ESP32 NodeMCU32S PINOUT</b></p>
 <img src="../images/image.png" width="250" height="200">
 
+ <p><b>Blinking internal onboard LED of ESP32<b></p>
+  <p><code>#define ONBOARD_LED 2
+
+<p>void setup () {<br>
+  pinMode (ONBOARD_LED,OUTPUT);<br>
+}</p>
+
+<p>void loop () {<br>
+  delay (1000);<br>
+  digitalWrite (ONBOARD_LED,HIGH);<br>
+  delay (100);<br>
+  digitalWrite (ONBOARD_LED,LOW);<br>
+}</code></p>
+
 
 <p><b>Traffic lights LED based project with ESP32</b></p>
 
