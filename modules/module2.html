@@ -24,12 +24,6 @@
 
  <p><b>Traffic lights using LEDS with PI PICO</b></p>
 
-
-    <video width="320" height="240" controls>
-      <source src="../videos/trafficlights.mp4" type ="video/mp4">
-    Your browser does not support the video tag.
-    </video>>
-
     <p>with the code below:</p>
 
   <p><code> from machine import Pin<br>
@@ -38,20 +32,7 @@
 
 <p>one= Pin(0,Pin.OUT)<br>
 two= Pin(1,Pin.OUT)<br>
-three= Pin(2,Pin.OUT)<br>
-four= Pin(3,Pin.OUT)<br>
-five= Pin(4,Pin.OUT)<br>
-six= Pin(5,Pin.OUT)<br>
-seven= Pin(6,Pin.OUT)<br>
-eight= Pin(7,Pin.OUT)<br>
-nine= Pin(8,Pin.OUT)<br>
-ten= Pin(9,Pin.OUT)<br>
-eleven= Pin(10,Pin.OUT)<br>
-twelve= Pin(11,Pin.OUT)<br>
-thirteen= Pin(12,Pin.OUT)<br>
-fourteen= Pin(13,Pin.OUT)<br>
-fifteen= Pin(14,Pin.OUT)<br>
-sixteen= Pin(15,Pin.OUT)<br></p>
+three= Pin(2,Pin.OUT)</p>
 
 <p> #button=Pin(1,Pin.IN,Pin.PULL_UP)</p>
 
@@ -59,302 +40,25 @@ sixteen= Pin(15,Pin.OUT)<br></p>
     
     <p>one.value(1)<br>
     two.value(0)<br>
-    three.value(0)<br>
-    four.value(0)<br>
-    five.value(0)<br>
-    six.value(0)<br>
-    seven.value(0)<br>
-    eight.value(0)<br>
-    nine.value(0)<br>
-    ten.value(0)<br>
-    eleven.value(0)<br>
-    twelve.value(0)<br>
-    thirteen.value(0)<br>
-    fourteen.value(0)<br>
-    fifteen.value(0)<br>
-    sixteen.value(0)<br>
-    sleep(1)<br></p>
+    three.value(0)</p>
+    
     
     <p>one.value(0)<br>
     two.value(1)<br>
-    three.value(0)<br>
-    four.value(0)<br>
-    five.value(0)<br>
-    six.value(0)<br>
-    seven.value(0)<br>
-    eight.value(0)<br>
-    nine.value(0)<br>
-    ten.value(0)<br>
-    eleven.value(0)<br>
-    twelve.value(0)<br>
-    thirteen.value(0)<br>
-    fourteen.value(0)<br>
-    fifteen.value(0)<br>
-    sixteen.value(0)<br>
-    sleep(1)<br></p>
-    
-    <p>one.value(0)<br>
-    two.value(0)<br>
-    three.value(1)<br>
-    four.value(0)<br>
-    five.value(0)<br>
-    six.value(0)<br>
-    seven.value(0)<br>
-    eight.value(0)<br>
-    nine.value(0)<br>
-    ten.value(0)<br>
-    eleven.value(0)<br>
-    twelve.value(0)<br>
-    thirteen.value(0)<br>
-    fourteen.value(0)<br>
-    fifteen.value(0)<br>
-    sixteen.value(0)<br>
-    sleep(1)<br></p>
+    three.value(0)</p>
     
     
     <p>one.value(0)<br>
     two.value(0)<br>
-    three.value(0)<br>
-    four.value(1)<br>
-    five.value(0)<br>
-    six.value(0)<br>
-    seven.value(0)<br>
-    eight.value(0)<br>
-    nine.value(0)<br>
-    ten.value(0)<br>
-    eleven.value(0)<br>
-    twelve.value(0)<br>
-    thirteen.value(0)<br>
-    fourteen.value(0)<br>
-    fifteen.value(0)<br>
-    sixteen.value(0)<br>
-    sleep(1)<br></p>
+    three.value(1)<code></p>
 
-    <p>one.value(0)<br>
-    two.value(0)<br>
-    three.value(0)<br>
-    four.value(0)<br>
-    five.value(1)<br>
-    six.value(0)<br>
-    seven.value(0)<br>
-    eight.value(0)<br>
-    nine.value(0)<br>
-    ten.value(0)<br>
-    eleven.value(0)<br>
-    twelve.value(0)<br>
-    thirteen.value(0)<br>
-    fourteen.value(0)<br>
-    fifteen.value(0)<br>
-    sixteen.value(0)<br>
-    sleep(1)<br></p>
-    
-    <p>one.value(0)<br>
-    two.value(0)<br>
-    three.value(0)<br>
-    four.value(0)<br>
-    five.value(0)<br>
-    six.value(1)<br>
-    seven.value(0)<br>
-    eight.value(0)<br>
-    nine.value(0)<br>
-    ten.value(0)<br>
-    eleven.value(0)<br>
-    twelve.value(0)<br>
-    thirteen.value(0)<br>
-    fourteen.value(0)<br>
-    fifteen.value(0)<br>
-    sixteen.value(0)<br>
-    sleep(1)<br></p>
-    
-    <p>one.value(0)<br>
-    two.value(0)<br>
-    three.value(0)<br>
-    four.value(0)<br>
-    five.value(0)<br>
-    six.value(0)<br>
-    seven.value(1)<br>
-    eight.value(0)<br>
-    nine.value(0)<br>
-    ten.value(0)<br>
-    eleven.value(0)<br>
-    twelve.value(0)<br>
-    thirteen.value(0)<br>
-    fourteen.value(0)<br>
-    fifteen.value(0)<br>
-    sixteen.value(0)<br>
-    sleep(1)<br></p>
-    
-    
-    
-   <p>one.value(0)<br>
-    two.value(0)<br>
-    three.value(0)<br>
-    four.value(0)<br>
-    five.value(0)<br>
-    six.value(0)<br>
-    seven.value(0)<br>
-    eight.value(1)<br>
-    nine.value(0)<br>
-    ten.value(0)<br>
-    eleven.value(0)<br>
-    twelve.value(0)<br>
-    thirteen.value(0)<br>
-    fourteen.value(0)<br>
-    fifteen.value(0)<br>
-    sixteen.value(0)<br>
-    sleep(1)<br></p>
-    
-    <p>one.value(0)<br>
-    two.value(0)v<br>
-    three.value(0)<br>
-    four.value(0)<br>
-    five.value(0)<br>
-    six.value(0)<br>
-    seven.value(0)<br>
-    eight.value(0)<br>
-    nine.value(1)<br>
-    ten.value(0)<br>
-    eleven.value(0)<br>
-    twelve.value(0)<br>
-    thirteen.value(0)<br>
-    fourteen.value(0)<br>
-    fifteen.value(0)<br>
-    sixteen.value(0)<br>
-    sleep(1)<br></p>
-    
-    <p>one.value(0)<br>
-    two.value(0)<br>
-    three.value(0)<br>
-    four.value(0)<br>
-    five.value(0)<br>
-    six.value(0)<br>
-    seven.value(0)<br>
-    eight.value(0)<br>
-    nine.value(0)<br>
-    ten.value(1)<br>
-    eleven.value(0)<br>
-    twelve.value(0)<br>
-    thirteen.value(0)<br>
-    fourteen.value(0)<br>
-    fifteen.value(0)<br>
-    sixteen.value(0)<br>
-    sleep(1)<br></p>
-    
-    <p>one.value(0)<br>
-    two.value(0)<br>
-    three.value(0)<br>
-    four.value(0)<br>
-    five.value(0)<br>
-    six.value(0)<br>
-    seven.value(0)<br>
-    eight.value(0)<br>
-    nine.value(0)<br>
-    ten.value(0)<br>
-    eleven.value(1)<br>
-    twelve.value(0)<br>
-    thirteen.value(0)<br>
-    fourteen.value(0)<br>
-    fifteen.value(0)<br>
-    sixteen.value(0)<br>
-    sleep(1)<br></p>
-    
-   <p>one.value(0)<br>
-    two.value(0)<br>
-    three.value(0)<br>
-    four.value(0)<br>
-    five.value(0)<br>
-    six.value(0)<br>
-    seven.value(0)<br>
-    eight.value(0)v<br>
-    nine.value(0)<br>
-    ten.value(0)<br>
-    eleven.value(0)<br>
-    twelve.value(1)<br>
-    thirteen.value(0)<br>
-    fourteen.value(0)<br>
-    fifteen.value(0)<br>
-    sixteen.value(0)<br>
-    sleep(1)<br></p>
-    
-    
-    <p> one.value(0)<br>
-    two.value(0)<br>
-    three.value(0)<br>
-    four.value(0)<br>
-    five.value(0)<br>
-    six.value(0)<br>
-    seven.value(0)<br>
-    eight.value(0)<br>
-    nine.value(0)<br>
-    ten.value(0)<br>
-    eleven.value(0)<br>
-    twelve.value(0)<br>
-    thirteen.value(1)<br>
-    fourteen.value(0)<br>
-    fifteen.value(0)<br>
-    sixteen.value(0)<br>
-    sleep(1)<br></p>
+    <video width="320" height="240" controls>
+      <source src="../videos/trafficlights.mp4" type ="video/mp4">
+    Your browser does not support the video tag.
+    </video>>
 
-    <p> one.value(0)<br>
-    two.value(0)<br>
-    three.value(0)<br>
-    four.value(0)<br>
-    five.value(0)<br>
-    six.value(0)<br>
-    seven.value(0)<br>
-    eight.value(0)<br>
-    nine.value(0)<br>
-    ten.value(0)<br>
-    eleven.value(0)<br>
-    twelve.value(0)<br>
-    thirteen.value(0<br>)
-    fourteen.value(1)<br>
-    fifteen.value(0)<br>
-    sixteen.value(0)<br>
-    sleep(1)<br></p>
-
-
-    
-    <p> one.value(0)<br>
-    two.value(0)<br>
-    three.value(0)<br>
-    four.value(0)<br>
-    five.value(0)v<br>
-    six.value(0)<br>
-    seven.value(0)<br>
-    eight.value(0)<br>
-    nine.value(0)<br>
-    ten.value(0)<br>
-    eleven.value(0)<br>
-    twelve.value(0)<br>
-    thirteen.value(0)<br>
-    fourteen.value(0)<br>
-    fifteen.value(1)<br>
-    sixteen.value(0)<br>
-    sleep(1)<br></p>
-
-
-
-    <p>one.value(0)<br>
-    two.value(0)<br>
-    three.value(0)<br>
-    four.value(0)<br>
-    five.value(0)<br>
-    six.value(0)v<br>
-    seven.value(0)<br>
-    eight.value(0)<br>
-    nine.value(0)v<br>
-    ten.value(0)<br>
-    eleven.value(0)<br>
-    twelve.value(0)<br>
-    thirteen.value(0)<br>
-    thirteen.value(0)<br>
-    thirteen.value(0)<br>
-    thirteen.value(0)<br>
-    fourteen.value(0)<br>
-    fifteen.value(0)<br>
-    sixteen.value(1)<br>
-    sleep(1)</code></p>
+    <p><b>Controlling an LED using pushbutton<b></p>
+        <code></code>
 
     <p><b>Sensor</b>- a device that detect/ senses physical phenomenon then reacts to it in a particular way.<br>It converts physical attributes to electric signal.<br>eg..<b>Ultrasonic sensor</b> which sends out soundwaves and measures the time it takes for the sound to be reflected back.</p>
     
