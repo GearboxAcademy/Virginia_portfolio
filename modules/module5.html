@@ -1,12 +1,105 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title></title>
+<title>MODULE 5</title>
 </head>
 <body>
 
-<h1></h1>
-<p></p>
+<h1>Microcontroller Programming and Access Control Systems III</h1>
+<p><b>Interfacing RPI Pico with a Relay</b></p>
+
+  <p>A 5v relay module is a type of switch taht can be turned on /off electronically.<br>
+  It controls a higher-powered device from a low-powered microcontroller without burning it </p>
+  
+  <p>Internally it is made up of 2 physical and electrically separated circuits: 
+    1.Input circuit -does the switching <br>
+    2.Control circuit- this is what is getting switched on/off </p>
+  
+  <p>It works on the principle of electromagnetic attraction where the microcontroller send an electric signal to the input circuit and in turn<br> it activates the control circuit. </p>
+  
+  <p><b>RPI PICO and 5v Relay PROJECT with a {solenoid} &{with an LED and resistor}<b></p>
+  <p><code>from machine import Pin<br>
+import time</p>
+
+<p>relay = Pin(16, Pin.OUT) # The pin that is connected to the Input Circuit of the Relay</p>
+
+<p>while True:  # Loop forever<br>
+    relay.value(0)  # Turn the relay ON<br>
+    time.sleep(1)<br>
+    relay.value(1)  # Turn the relay OFF<br>
+    time.sleep(1)</code></p>
+
+
+
+<p><b>Access Control Systems<b></p>
+  <p>RFID-(Radio Frequency Identification) is a method of wireless communication which uses electromagnetic waves to identify specific targets without<br> establishing any physical contact between the identification system and the target.</p>
+  
+  <p><b>RFID access system and RPI Pico PROJECT<b></p>
+    <p><code>from mfrc522 import MFRC522<br>
+import utime<br>
+from machine import Pin<br>
+lock =Pin(16,Pin.OUT)<br>
+buzzer = Pin(17, Pin.OUT)<br>
+Red =Pin(2,Pin.OUT)<br>
+Green =Pin(1,Pin.OUT)<br></p>
+#Blue = Pin(11, Pin.OUT)
+#Touch_sensor = machine.Pin(7,Pin.IN,Pin.PULL_UP)
+<p>lock.value(0)<br>
+buzzer.value(0)<br>
+Red.value(0)<br>
+Green.value(0)<br>
+#Blue.value(0)<br>
+def uidToString(uid):<br>
+    mystring = ""<br>
+    for i in uid:<br>
+        mystring = "%02X" % i + mystring<br>
+    return mystring</p>
+                 
+<p>c522 = MFRC522(spi_id=0,sck=6,miso=4,mosi=7,cs=5,rst=22)<br>
+print("")<br>
+print("Place the RFID Card")<br>
+print("")<br>
+while True:<br>
+    (stat, tag_type) = rc522.request(rc522.REQALL)<br>
+    if stat == rc522.OK:<br>
+        (status, raw_uid) = rc522.SelectTagSN()<br>
+        if stat == rc522.OK:<br>
+            rfid_data = "{:02x}{:02x}{:02x}{:02x}".format(raw_uid[0], raw_uid[1], raw_uid[2], raw_uid[3])<br>
+            print("Card detected! UID: {}".format(rfid_data))</p>
+           
+            <p>if rfid_data == "9621916220":</p>
+               
+                <p>lock.value(1)<br>
+                Green.value(1)<br>
+                utime.sleep(5)<br>
+                lock.value(0)<br>
+                Green.value(0)</p>
+               
+               
+            <p>elif rfid_data == "60dba214":</p>
+               
+                <p>lock.value(1)<br>
+                Green.value(1)<br>
+                utime.sleep(5)<br>
+                lock.value(0)<br>
+                Green.value(0)</p>
+               
+               
+            <p>else:</p>
+               
+                <p>buzzer.value(1)<br>
+                Red.value(1)<br>
+                utime.sleep(1)<br>
+                buzzer.value(0)<br>
+                Red.value(0)</p>
+               
+<p>#     if Touch_sensor.value()==1:<br>
+#             print("Touch")<br>
+#             lock.value(0)<br>
+#             utime.sleep(5)<br>
+#             lock.value(1)</code></p>
+    
+  </p>
 
 </body>
 </html>
