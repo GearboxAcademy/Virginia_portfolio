@@ -41,6 +41,11 @@ It is synchronus therefore it relies on an external clock.</p>
         except KeyboardInterrupt:<br>
             break</code></body></p>
 
+            <video width="380" height="240" controls>
+              <source src="../videos/.mp4" type ="video/mp4">
+            Your browser does not support the video tag.
+            </video>>
+
 
 <p><b>Interfacing RFID with PI PICO<b></p>
 
@@ -85,6 +90,11 @@ It is synchronus therefore it relies on an external clock.</p>
                     led_red.value(1)<br>
                     led_green.value(0)<br>
                     #blue.value(0)</p>
+
+                    <video width="380" height="240" controls>
+                      <source src="../videos/" type ="video/mp4">
+                    Your browser does not support the video tag.
+                    </video>>
 
 
 
@@ -417,79 +427,79 @@ It is synchronus therefore it relies on an external clock.</p>
   
   <p><b>Interfacing RFID +LED+ BUZZER with ESP32<b></p>
     <p><code>#include <SPI.h><br>
-#include <MFRC522.h></p>
+       #include <MFRC522.h></p>
 
-<p>#define RST_PIN 0     // Reset pin for RC522 module<br>
+      <p>#define RST_PIN 0     // Reset pin for RC522 module<br>
 #define SDA_PIN 5      // Slave Select pin for RC522 module<br>
 #define LED_GREEN 25<br>
 #define LED_RED 2<br>
 #define BUZZER 26<br>
-MFRC522 rfid(SDA_PIN, RST_PIN);   // Create MFRC522 instance</p>
+        MFRC522 rfid(SDA_PIN, RST_PIN);   // Create MFRC522 instance</p>
  
  
-<p>void setup() {<br>
-  pinMode(LED_GREEN, OUTPUT);<br>
-  pinMode(LED_RED, OUTPUT);<br>
-  pinMode (BUZZER, OUTPUT);<br>
-  Serial.begin(9600);<br>
-  SPI.begin();<br>
-  rfid.PCD_Init();<br>
-  Serial.println("RFID Ready!");<br>
-  Serial.println("");<br>
-}</p>
-<p>void loop() {<br>
-  if (rfid.PICC_IsNewCardPresent() && rfid.PICC_ReadCardSerial()) {<br>
-    Serial.print("Card UID:");<br>
-    String uid = "";<br>
-    for (byte i = 0; i < rfid.uid.size; i++) {<br>
-      Serial.print(rfid.uid.uidByte[i] < 0x10 ? "0" : "");<br>
-      Serial.print(rfid.uid.uidByte[i], DEC);<br>
-      uid.concat(String(rfid.uid.uidByte[i] < 0x10 ? "0" : ""));<br>
-      uid.concat(String(rfid.uid.uidByte[i], DEC));<br>
-    }<br>
-    Serial.println("");<br>
-   if( uid =="9621916220" )<br>
-        {<br>
-         Serial.println("Virginia Njeri");</p>
-         
-         <p>digitalWrite(LED_GREEN, HIGH);<br> 
-         delay(3000); <br>
-         digitalWrite(LED_GREEN, LOW);<br>
-
+        <p>void setup() {<br>
+          pinMode(LED_GREEN, OUTPUT);<br>
+          pinMode(LED_RED, OUTPUT);<br>
+          pinMode (BUZZER, OUTPUT);<br>
+          Serial.begin(9600);<br>
+          SPI.begin();<br>
+          rfid.PCD_Init();<br>
+          Serial.println("RFID Ready!");<br>
+          Serial.println("");<br>
         }</p>
-        
-        <p>else if(uid=="9621916220" )<br>
-        {<br>
-          
-         <br>
-         digitalWrite(LED_GREEN, HIGH);<br> 
-         delay(3000); <br>
-         digitalWrite(LED_GREEN, LOW);</p>
+        <p>void loop() {<br>
+          if (rfid.PICC_IsNewCardPresent() && rfid.PICC_ReadCardSerial()) {<br>
+            Serial.print("Card UID:");<br>
+            String uid = "";<br>
+            for (byte i = 0; i < rfid.uid.size; i++) {<br>
+              Serial.print(rfid.uid.uidByte[i] < 0x10 ? "0" : "");<br>
+              Serial.print(rfid.uid.uidByte[i], DEC);<br>
+              uid.concat(String(rfid.uid.uidByte[i] < 0x10 ? "0" : ""));<br>
+              uid.concat(String(rfid.uid.uidByte[i], DEC));<br>
+            }<br>
+            Serial.println("");<br>
+          if( uid =="9621916220" )<br>
+                {<br>
+                Serial.println("Virginia Njeri");</p>
+                
+                <p>digitalWrite(LED_GREEN, HIGH);<br> 
+                delay(3000); <br>
+                digitalWrite(LED_GREEN, LOW);<br>
 
-        <p>}</p>
+                }</p>
+                
+                <p>else if(uid=="9621916220" )<br>
+                {<br>
+                  
+                <br>
+                digitalWrite(LED_GREEN, HIGH);<br> 
+                delay(3000); <br>
+                digitalWrite(LED_GREEN, LOW);</p>
 
-         <p>digitalWrite(LED_RED, HIGH);<br> 
-         digitalWrite(BUZZER, HIGH); <br>
-         delay(1000); <br>
-         digitalWrite(LED_RED, LOW);<br>
-         digitalWrite(BUZZER, LOW);<br>
+                <p>}</p>
 
-        <p>}</p>
+                <p>digitalWrite(LED_RED, HIGH);<br> 
+                digitalWrite(BUZZER, HIGH); <br>
+                delay(1000); <br>
+                digitalWrite(LED_RED, LOW);<br>
+                digitalWrite(BUZZER, LOW);<br>
 
-  <p>}<br>
-  rfid.PICC_HaltA();<br>
-  rfid.PCD_StopCrypto1();<br>
-}</code></p>
+                <p>}</p>
 
-
-<video width="320" height="240" controls>
-  <source src="../videos/esp32 +buzzer+RFID+LED.mp4" type ="video/mp4">
-Your browser does not support the video tag.
+          <p>}<br>
+          rfid.PICC_HaltA();<br>
+          rfid.PCD_StopCrypto1();<br>
+        }</code></p>
 
 
+        <video width="320" height="240" controls>
+          <source src="../videos/esp32 +buzzer+RFID+LED.mp4" type ="video/mp4">
+        Your browser does not support the video tag.
 
-<p>I2c{Inter-intergrated circuit}</p>
-Its a communication protocol that allows multiple electronic devices to<br> communicate with each other using a serial interface.<br>
+
+
+        <p>I2c{Inter-intergrated circuit}</p>
+        Its a communication protocol that allows multiple electronic devices to<br> communicate with each other using a serial interface.<br>
 I2C protocol uses two wires: the SDA(serial Data Line) and SCL (Serial Clock Line) to facilitate communication.<br> SDA is used for transmitting and receiving data, while SCL is used  data transfer between devices.<br>
 It supports multi-master and multi-slave communication where the master device initiates communication<br>and the slave acts/responds to the master's commands<br>
 Has 2 different kinds of ids: <br>I2c1 <br>I2c0<br>
@@ -498,38 +508,38 @@ Also it reduces the amount of pinouts required for communication.</p>
 <p>I2c PROJECTS</p>
 <p><b>Interfacing OLED & AHT10 to PI PICO <b></p>
 
-<p><code>from machine import Pin, SPI<br>
-    from machine import Pin, I2C<br>
-    from ssd1306 import SSD1306_SPI<br>
-    import framebuf<br>
-    import time<br>
-    from time import sleep<br>
-    import ahtx0<br></code></p>
+      <p><code>from machine import Pin, SPI<br>
+          from machine import Pin, I2C<br>
+          from ssd1306 import SSD1306_SPI<br>
+          import framebuf<br>
+          import time<br>
+          from time import sleep<br>
+          import ahtx0<br></code></p>
 
-    
-    <p># Create I2C object<br>
-    scl = Pin(27)<br>
-    sda = Pin(26)<br>
-    scl = Pin(27)<br>
-    i2c = I2C(1, scl=scl, sda=sda)<br></p>
-    
-    
-    <p># Create the sensor object using I2C<br>
-    sensor = ahtx0.AHT10(i2c)<br></p>
+          
+          <p># Create I2C object<br>
+          scl = Pin(27)<br>
+          sda = Pin(26)<br>
+          scl = Pin(27)<br>
+          i2c = I2C(1, scl=scl, sda=sda)<br></p>
+          
+          
+          <p># Create the sensor object using I2C<br>
+          sensor = ahtx0.AHT10(i2c)<br></p>
 
-    
-    <p>spi = SPI(0, 100000, mosi=Pin(19), sck=Pin(18))<br>
-    oled = SSD1306_SPI(128, 64, spi, Pin(17), Pin(20), Pin(16))<br></p>
-    
-    <p>while True:<br>
-        temperature = round(sensor.temperature, 2)<br>
-        humidity = round(sensor.relative_humidity, 2)<br></p>
-    
-        <p>oled.fill(0)<br>
-        oled.text("Temp: {:.2f} C".format(temperature), 0, 10)<br>
-        oled.text("Humidity: {:.2f} %".format(humidity), 0, 30)<br>
-        oled.show()<br>
-        time.sleep(5)</code></p>
+          
+          <p>spi = SPI(0, 100000, mosi=Pin(19), sck=Pin(18))<br>
+          oled = SSD1306_SPI(128, 64, spi, Pin(17), Pin(20), Pin(16))<br></p>
+          
+          <p>while True:<br>
+              temperature = round(sensor.temperature, 2)<br>
+              humidity = round(sensor.relative_humidity, 2)<br></p>
+          
+              <p>oled.fill(0)<br>
+              oled.text("Temp: {:.2f} C".format(temperature), 0, 10)<br>
+              oled.text("Humidity: {:.2f} %".format(humidity), 0, 30)<br>
+              oled.show()<br>
+              time.sleep(5)</code></p>
 
         
     <img src="../images/aht1o .jpg" width="250" height="200">
@@ -543,166 +553,173 @@ Also it reduces the amount of pinouts required for communication.</p>
       <p><b>Interfacing AHT10 with ESP32<b></p>
       <p><code>#include <Wire.h></p>
 
-        <p>// Define AHT10 register addresses<br>
-        #define AHT10_ADDR 0x38<br>
-        #define CMD_MEASURE 0xAC<br>
-        #define CMD_SOFTRESET 0xBA<br>
-        #define STATUS_BUSY_MASK 0x80</p>
-        
-        <p>// Define I2C0 pins<br>
-        #define SDA_PIN 21<br>
-        #define SCL_PIN 22</p>
-        
-        <p>// Global variables for sensor data<br>
-        float temperature = 0.0;<br>
-        float humidity = 0.0;</p>
-        
-        <p>// Function to read AHT10 sensor<br>
-        void readAHT10() {<br>
-          // Send measurement command to AHT10<br>
-          Wire.beginTransmission(AHT10_ADDR);<br>
-          Wire.write(CMD_MEASURE);<br>
-          Wire.write(0x33);<br>
-          Wire.write(0x00);<br>
-          Wire.endTransmission();</p>
-          
-          <p>// Wait for measurement to complete<br>
-          while (true) {<br>
-            Wire.beginTransmission(AHT10_ADDR);<br>
-            Wire.write(0x71);<br>
-            Wire.endTransmission(false);<br>
-            Wire.requestFrom(AHT10_ADDR, 1);<br>
-            if ((Wire.read() & STATUS_BUSY_MASK) == 0) break;<br>
-            delay(10);<br>
-          }</p>
-        
-          <p>// Read measurement data from AHT10<br>
-          Wire.beginTransmission(AHT10_ADDR);<br>
-          Wire.write(0x00);<br>
-          Wire.endTransmission(false);<br>
-          Wire.requestFrom(AHT10_ADDR, 6);<br>
-          uint8_t msb = Wire.read();<br>
-          uint8_t lsb = Wire.read();<br>
-          uint8_t cksum = Wire.read();<br>
-          uint32_t raw_data = ((msb << 16) | (lsb << 8) | cksum) >> 4;</p>
-        
-          <p>// Convert raw data to temperature and humidity<br>
-          temperature = (float)(raw_data * 200.0 / 1048576.0) - 50.0;<br>
-          humidity = (float)(raw_data * 100.0 / 1048576.0);<br>
-        }</p>
-        
-        <p>void setup() {<br>
-          // Initialize serial communication<br>
-          Serial.begin(9600);</p>
-        
-          <p>// Initialize I2C communication on I2C0 with custom SDA and SCL pins<br>
-          Wire.begin(SDA_PIN, SCL_PIN);</p>
-          
-          <p>// Soft reset AHT10<br>
-          Wire.beginTransmission(AHT10_ADDR);<br>
-          Wire.write(CMD_SOFTRESET);<br>
-          Wire.endTransmission();<br>
-          delay(20);<br>
-        }</p>
-        
-        <p>void loop() {<br>
-          // Read data from AHT10<br>
-          readAHT10();</p>
-        
-          <p>// Print temperature and humidity values to serial monitor<br>
-          Serial.print("Temperature: ");<br>
-          Serial.print(temperature, 2); // round to 2 decimal places<br>
-          Serial.print(" C, Humidity: ");<br>
-          Serial.print(humidity, 2); // round to 2 decimal places<br>
-          Serial.println(" %");</p>
-        
-          <p>// Wait 1 second before taking another measurement<br>
-          delay(1000);<br>
-        }</code></p>
+            <p>// Define AHT10 register addresses<br>
+            #define AHT10_ADDR 0x38<br>
+            #define CMD_MEASURE 0xAC<br>
+            #define CMD_SOFTRESET 0xBA<br>
+            #define STATUS_BUSY_MASK 0x80</p>
+            
+            <p>// Define I2C0 pins<br>
+            #define SDA_PIN 21<br>
+            #define SCL_PIN 22</p>
+            
+            <p>// Global variables for sensor data<br>
+            float temperature = 0.0;<br>
+            float humidity = 0.0;</p>
+            
+            <p>// Function to read AHT10 sensor<br>
+            void readAHT10() {<br>
+              // Send measurement command to AHT10<br>
+              Wire.beginTransmission(AHT10_ADDR);<br>
+              Wire.write(CMD_MEASURE);<br>
+              Wire.write(0x33);<br>
+              Wire.write(0x00);<br>
+              Wire.endTransmission();</p>
+              
+              <p>// Wait for measurement to complete<br>
+              while (true) {<br>
+                Wire.beginTransmission(AHT10_ADDR);<br>
+                Wire.write(0x71);<br>
+                Wire.endTransmission(false);<br>
+                Wire.requestFrom(AHT10_ADDR, 1);<br>
+                if ((Wire.read() & STATUS_BUSY_MASK) == 0) break;<br>
+                delay(10);<br>
+              }</p>
+            
+              <p>// Read measurement data from AHT10<br>
+              Wire.beginTransmission(AHT10_ADDR);<br>
+              Wire.write(0x00);<br>
+              Wire.endTransmission(false);<br>
+              Wire.requestFrom(AHT10_ADDR, 6);<br>
+              uint8_t msb = Wire.read();<br>
+              uint8_t lsb = Wire.read();<br>
+              uint8_t cksum = Wire.read();<br>
+              uint32_t raw_data = ((msb << 16) | (lsb << 8) | cksum) >> 4;</p>
+            
+              <p>// Convert raw data to temperature and humidity<br>
+              temperature = (float)(raw_data * 200.0 / 1048576.0) - 50.0;<br>
+              humidity = (float)(raw_data * 100.0 / 1048576.0);<br>
+            }</p>
+            
+            <p>void setup() {<br>
+              // Initialize serial communication<br>
+              Serial.begin(9600);</p>
+            
+              <p>// Initialize I2C communication on I2C0 with custom SDA and SCL pins<br>
+              Wire.begin(SDA_PIN, SCL_PIN);</p>
+              
+              <p>// Soft reset AHT10<br>
+              Wire.beginTransmission(AHT10_ADDR);<br>
+              Wire.write(CMD_SOFTRESET);<br>
+              Wire.endTransmission();<br>
+              delay(20);<br>
+            }</p>
+            
+            <p>void loop() {<br>
+              // Read data from AHT10<br>
+              readAHT10();</p>
+            
+              <p>// Print temperature and humidity values to serial monitor<br>
+              Serial.print("Temperature: ");<br>
+              Serial.print(temperature, 2); // round to 2 decimal places<br>
+              Serial.print(" C, Humidity: ");<br>
+              Serial.print(humidity, 2); // round to 2 decimal places<br>
+              Serial.println(" %");</p>
+            
+              <p>// Wait 1 second before taking another measurement<br>
+              delay(1000);<br>
+            }</code></p>
+
+            <video width="350" height="240" controls>
+              <source src="../videos/esp32-ahto.mp4" type ="video/mp4">
+            Your browser does not support the video tag.
+            </video>>
+
+
 
         <p><b>Interfacing AHT10 and OLED with esp32<b></p>
         <p><code>#include <Wire.h></p>
 
-<p>// Define AHT10 register addresses<br>
-#define AHT10_ADDR 0x38<br>
-#define CMD_MEASURE 0xAC<br>
-#define CMD_SOFTRESET 0xBA<br>
-#define STATUS_BUSY_MASK 0x80</p>
+      <p>// Define AHT10 register addresses<br>
+      #define AHT10_ADDR 0x38<br>
+      #define CMD_MEASURE 0xAC<br>
+      #define CMD_SOFTRESET 0xBA<br>
+      #define STATUS_BUSY_MASK 0x80</p>
 
-<p>// Define I2C0 pins<br>
-#define SDA_PIN 21<br>
-#define SCL_PIN 22</p>
+      <p>// Define I2C0 pins<br>
+      #define SDA_PIN 21<br>
+      #define SCL_PIN 22</p>
 
-<p>// Global variables for sensor data<br>
-float temperature = 0.0;<br>
-float humidity = 0.0;</p>
+      <p>// Global variables for sensor data<br>
+      float temperature = 0.0;<br>
+      float humidity = 0.0;</p>
 
-<p>// Function to read AHT10 sensor<br>
-void readAHT10() {<br>
-  // Send measurement command to AHT10<br>
-  Wire.beginTransmission(AHT10_ADDR);<br>
-  Wire.write(CMD_MEASURE);<br>
-  Wire.write(0x33);<br>
-  Wire.write(0x00);<br>
-  Wire.endTransmission();</p>
-  
-  <p>// Wait for measurement to complete<br>
-  while (true) {<br>
-    Wire.beginTransmission(AHT10_ADDR);<br>
-    Wire.write(0x71);<br>
-    Wire.endTransmission(false);<br>
-    Wire.requestFrom(AHT10_ADDR, 1);<br>
-    if ((Wire.read() & STATUS_BUSY_MASK) == 0) break;<br>
-    delay(10);<br>
-  }</p>
+      <p>// Function to read AHT10 sensor<br>
+      void readAHT10() {<br>
+        // Send measurement command to AHT10<br>
+        Wire.beginTransmission(AHT10_ADDR);<br>
+        Wire.write(CMD_MEASURE);<br>
+        Wire.write(0x33);<br>
+        Wire.write(0x00);<br>
+        Wire.endTransmission();</p>
+        
+        <p>// Wait for measurement to complete<br>
+        while (true) {<br>
+          Wire.beginTransmission(AHT10_ADDR);<br>
+          Wire.write(0x71);<br>
+          Wire.endTransmission(false);<br>
+          Wire.requestFrom(AHT10_ADDR, 1);<br>
+          if ((Wire.read() & STATUS_BUSY_MASK) == 0) break;<br>
+          delay(10);<br>
+        }</p>
 
-  <p>// Read measurement data from AHT10<br>
-  Wire.beginTransmission(AHT10_ADDR);<br>
-  Wire.write(0x00);<br>
-  Wire.endTransmission(false);<br>
-  Wire.requestFrom(AHT10_ADDR, 6);<br>
-  uint8_t msb = Wire.read();<br>
-  uint8_t lsb = Wire.read();<br>
-  uint8_t cksum = Wire.read();<br>
-  uint32_t raw_data = ((msb << 16) | (lsb << 8) | cksum) >> 4;</p>
+        <p>// Read measurement data from AHT10<br>
+        Wire.beginTransmission(AHT10_ADDR);<br>
+        Wire.write(0x00);<br>
+        Wire.endTransmission(false);<br>
+        Wire.requestFrom(AHT10_ADDR, 6);<br>
+        uint8_t msb = Wire.read();<br>
+        uint8_t lsb = Wire.read();<br>
+        uint8_t cksum = Wire.read();<br>
+        uint32_t raw_data = ((msb << 16) | (lsb << 8) | cksum) >> 4;</p>
 
-  <p>// Convert raw data to temperature and humidity<br>
-  temperature = (float)(raw_data * 200.0 / 1048576.0) - 50.0;<br>
-  humidity = (float)(raw_data * 100.0 / 1048576.0);<br>
-}</p>
+        <p>// Convert raw data to temperature and humidity<br>
+        temperature = (float)(raw_data * 200.0 / 1048576.0) - 50.0;<br>
+        humidity = (float)(raw_data * 100.0 / 1048576.0);<br>
+      }</p>
 
-<p>void setup() {<br>
-  // Initialize serial communication<br>
-  Serial.begin(9600);</p>
+      <p>void setup() {<br>
+        // Initialize serial communication<br>
+        Serial.begin(9600);</p>
 
-  <p>// Initialize I2C communication on I2C0 with custom SDA and SCL pins<br>
-  Wire.begin(SDA_PIN, SCL_PIN);</p>
-  
-  <p>// Soft reset AHT10<br>
-  Wire.beginTransmission(AHT10_ADDR);<br>
-  Wire.write(CMD_SOFTRESET);<br>
-  Wire.endTransmission();<br>
-  delay(20);<br>
-}</p>
+        <p>// Initialize I2C communication on I2C0 with custom SDA and SCL pins<br>
+        Wire.begin(SDA_PIN, SCL_PIN);</p>
+        
+        <p>// Soft reset AHT10<br>
+        Wire.beginTransmission(AHT10_ADDR);<br>
+        Wire.write(CMD_SOFTRESET);<br>
+        Wire.endTransmission();<br>
+        delay(20);<br>
+      }</p>
 
-<p>void loop() {<br>
-  // Read data from AHT10<br>
-  readAHT10();</p>
+      <p>void loop() {<br>
+        // Read data from AHT10<br>
+        readAHT10();</p>
 
-  <p>// Print temperature and humidity values to serial monitor<br>
-  Serial.print("Temperature: ");<br>
-  Serial.print(temperature, 2); // round to 2 decimal places<br>
-  Serial.print(" C, Humidity: ");<br>
-  Serial.print(humidity, 2); // round to 2 decimal places<br>
-  Serial.println(" %");</p>
+        <p>// Print temperature and humidity values to serial monitor<br>
+        Serial.print("Temperature: ");<br>
+        Serial.print(temperature, 2); // round to 2 decimal places<br>
+        Serial.print(" C, Humidity: ");<br>
+        Serial.print(humidity, 2); // round to 2 decimal places<br>
+        Serial.println(" %");</p>
 
-  <p>// Wait 1 second before taking another measurement<br>
-  delay(1000);<br>
-}<br>
-</code></p>
+        <p>// Wait 1 second before taking another measurement<br>
+        delay(1000);<br>
+      }<br>
+      </code></p>
 
     <video width="350" height="240" controls>
-      <source src="../videos/" type ="video/mp4">
+      <source src="../videos/OLED&AHT10 &ESP.mp4" type ="video/mp4">
     Your browser does not support the video tag.
     </video>>
 
@@ -715,39 +732,42 @@ It is ideal for lowpower and long distance communication and it is <b> NOT</b> a
 
     <p>Interfacing RPI Pico and ESP32 using serial</p>
     
-    <p><code>bool ledState=1; //variable used to save the state of LED<br>
-void setup() {<br>
-  Serial.begin(9600);// set baud rate to 9600<br>
-  pinMode(LED_BUILTIN, OUTPUT);<br>
-}</p>
+          <p><code>bool ledState=1; //variable used to save the state of LED<br>
+      void setup() {<br>
+        Serial.begin(9600);// set baud rate to 9600<br>
+        pinMode(LED_BUILTIN, OUTPUT);<br>
+      }</p>
 
-<p>void loop() {<br> 
-  if(Serial.read()== 't') {<br>
-  digitalWrite(LED_BUILTIN, ledState);<br>
-  ledState=!ledState;<br>
-  Serial.print('m'); //write 'm' to the UART<br>
-  }<br>
-}</code></p>
+      <p>void loop() {<br> 
+        if(Serial.read()== 't') {<br>
+        digitalWrite(LED_BUILTIN, ledState);<br>
+        ledState=!ledState;<br>
+        Serial.print('m'); //write 'm' to the UART<br>
+        }<br>
+      }</code></p>
 
-    
-    <p><code>from machine import Pin,UART<br>
-import time<br>
-uart = UART(1, baudrate=9600, tx=Pin(4), rx=Pin(5))<br>
-uart.init(bits=8, parity=None, stop=2)<br>
-led = Pin("LED", Pin.OUT)</p>
+          
+          <p><code>from machine import Pin,UART<br>
+      import time<br>
+      uart = UART(1, baudrate=9600, tx=Pin(4), rx=Pin(5))<br>
+      uart.init(bits=8, parity=None, stop=2)<br>
+      led = Pin("LED", Pin.OUT)</p>
 
-<p>while True:<br>
-    uart.write('t')<br>
-    if uart.any():<br>
-        data = uart.read()<br>
-        if data== b'm':<br>
-            led.toggle()<br>
-    time.sleep(1)</code></p>
+      <p>while True:<br>
+          uart.write('t')<br>
+          if uart.any():<br>
+              data = uart.read()<br>
+              if data== b'm':<br>
+                  led.toggle()<br>
+          time.sleep(1)</code></p>
 
-    <video width="380" height="240" controls>
-      <source src="../videos/" type ="video/mp4">
-    Your browser does not support the video tag.
-    </video>
+          <video width="380" height="240" controls>
+            <source src="../videos/esp32-pico.mp4" type ="video/mp4">
+          Your browser does not support the video tag.
+          </video>
+
+          <img src="../images/pico-esp32.jpg" width="250" height="200">
+
   
 
   </body>
