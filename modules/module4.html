@@ -121,7 +121,7 @@ It is synchronus therefore it relies on an external clock.</p>
               OLED_MOSI, OLED_CLK, OLED_DC, OLED_RESET, OLED_CS);</p>
 
            <p>const unsigned char electronicshub_logo [] PROGMEM = {<br>
-              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>           0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>           
               0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
               0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
               0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,<br>
@@ -416,19 +416,18 @@ It is synchronus therefore it relies on an external clock.</p>
               display.display();<br>
               delay(2000);<br>
             }</p>
-             </code></p>
+</code></p>
 
-             <img src="../images/esp&oled.jpg" width="250" height="200">
-                    
-                    <video width="380" height="240" controls>
-      <source src="../videos/oled-esp32.mp4" type ="video/mp4">
-    Your browser does not support the video tag.
-    </video>>
+<img src="../images/esp&oled.jpg" width="250" height="200">
+<video width="380" height="240" controls>
+<source src="../videos/oled-esp32.mp4" type ="video/mp4">
+Your browser does not support the video tag.
+</video>
 
 
   
-  <p><b>Interfacing RFID +LED+ BUZZER with ESP32<b></p>
-    <p><code>#include <SPI.h><br>
+<p><b>Interfacing RFID +LED+ BUZZER with ESP32<b></p>
+<p><code>#include <SPI.h><br>
        #include <MFRC522.h></p>
 
       <p>#define RST_PIN 0     // Reset pin for RC522 module<br>
@@ -491,17 +490,17 @@ It is synchronus therefore it relies on an external clock.</p>
           <p>}<br>
           rfid.PICC_HaltA();<br>
           rfid.PCD_StopCrypto1();<br>
-        }</code></p>
+}<br>
+</code></p>
+
+<video width="320" height="240" controls>
+<source src="../videos/esp32 +buzzer+RFID+LED.mp4" type ="video/mp4">
+Your browser does not support the video tag.
 
 
-        <video width="320" height="240" controls>
-          <source src="../videos/esp32 +buzzer+RFID+LED.mp4" type ="video/mp4">
-        Your browser does not support the video tag.
 
-
-
-        <p><b>I2c{Inter-intergrated circuit} <b></p>
-        <p>Its a communication protocol that allows multiple electronic devices to<br> communicate with each other using a serial interface.<br>
+<p><b>I2c{Inter-intergrated circuit} <b></p>
+<p>Its a communication protocol that allows multiple electronic devices to<br> communicate with each other using a serial interface.<br>
 I2C protocol uses two wires: the SDA(serial Data Line) and SCL (Serial Clock Line) to facilitate communication.<br> SDA is used for transmitting and receiving data, while SCL is used  data transfer between devices.<br>
 It supports multi-master and multi-slave communication where the master device initiates communication<br>and the slave acts/responds to the master's commands<br>
 Has 2 different kinds of ids: <br>I2c1 <br>I2c0<br>
@@ -510,7 +509,7 @@ Also it reduces the amount of pinouts required for communication.</p>
 <p>I2c PROJECTS</p>
 <p><b>Interfacing OLED & AHT10 to PI PICO <b></p>
 
-      <p><code>from machine import Pin, SPI<br>
+<p><code>from machine import Pin, SPI<br>
           from machine import Pin, I2C<br>
           from ssd1306 import SSD1306_SPI<br>
           import framebuf<br>
@@ -544,12 +543,12 @@ Also it reduces the amount of pinouts required for communication.</p>
               time.sleep(5)</code></p>
 
         
-    <img src="../images/aht1o .jpg" width="250" height="200">
+<img src="../images/aht1o .jpg" width="250" height="200">
 
-    <video width="320" height="240" controls>
-        <source src="../videos/AHT10 &OLED.mp4" type ="video/mp4">
-      Your browser does not support the video tag.
-      </video>>
+<video width="320" height="240" controls>
+<source src="../videos/AHT10 &OLED.mp4" type ="video/mp4">
+Your browser does not support the video tag.
+</video>>
 
 
       <p><b>Interfacing AHT10 with ESP32<b></p>
@@ -632,14 +631,14 @@ Also it reduces the amount of pinouts required for communication.</p>
               delay(1000);<br>
             }</code></p>
 
-            <video width="350" height="240" controls>
-              <source src="../videos/esp32-ahto.mp4" type ="video/mp4">
-            Your browser does not support the video tag.
-            </video>>
+<video width="350" height="240" controls>
+<source src="../videos/esp32-ahto.mp4" type ="video/mp4">
+Your browser does not support the video tag.
+</video>>
 
 
 
-        <p><b>Interfacing AHT10 and OLED with esp32<b></p>
+<p><b>Interfacing AHT10 and OLED with esp32<b></p>
         <p><code>#include <Wire.h></p>
 
       <p>// Define AHT10 register addresses<br>
@@ -718,15 +717,14 @@ Also it reduces the amount of pinouts required for communication.</p>
         <p>// Wait 1 second before taking another measurement<br>
         delay(1000);<br>
       }<br>
-      </code></p>
+</code></p>
 
-      <img src="../images/OLED+AHT10+ESP32.jpg" width="250" height="200">
+<img src="../images/OLED+AHT10+ESP32.jpg" width="250" height="200">
 
-
-    <video width="350" height="240" controls>
-      <source src="../videos/OLED&AHT10 &ESP.mp4" type ="video/mp4">
-    Your browser does not support the video tag.
-    </video>>
+<video width="350" height="240" controls>
+<source src="../videos/OLED&AHT10 &ESP.mp4" type ="video/mp4">
+Your browser does not support the video tag.
+</video>>
 
 
 <p><b>{UART} short for Universal Asynchronus Reciever/Transmitter<b></p>
@@ -735,9 +733,9 @@ The main purpose is to transmit and recieve serial data and does not rely on an 
 UART is a stand alone ic or physical circuit in a micro-controller.<br>
 It is ideal for lowpower and long distance communication and it is <b> NOT</b> a protocol.</p>
 
-    <p>Interfacing RPI Pico and ESP32 using serial</p>
+<p>Interfacing RPI Pico and ESP32 using serial</p>
     
-          <p><code>bool ledState=1; //variable used to save the state of LED<br>
+<p><code>bool ledState=1; //variable used to save the state of LED<br>
       void setup() {<br>
         Serial.begin(9600);// set baud rate to 9600<br>
         pinMode(LED_BUILTIN, OUTPUT);<br>
@@ -764,19 +762,20 @@ It is ideal for lowpower and long distance communication and it is <b> NOT</b> a
               data = uart.read()<br>
               if data== b'm':<br>
                   led.toggle()<br>
-          time.sleep(1)</code></p>
+          time.sleep(1)
+</code></p>
 
-          <video width="380" height="240" controls>
-            <source src="../videos/esp32-pico.mp4" type ="video/mp4">
-          Your browser does not support the video tag.
-          </video>
+<video width="380" height="240" controls>
+<source src="../videos/esp32-pico.mp4" type ="video/mp4">
+Your browser does not support the video tag.
+</video>
 
-          <img src="../images/pico-esp32.jpg" width="250" height="200">
+<img src="../images/pico-esp32.jpg" width="250" height="200">
 
   
 
-  </body>
+</body>
   
-  </html>
+</html>
 
 
