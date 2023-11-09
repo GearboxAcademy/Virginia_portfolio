@@ -58,39 +58,40 @@ three= Pin(2,Pin.OUT)</p>
     </video>>
 
     <p><b>Controlling an LED using pushbutton<b></p>
-        <code>from machine import Pin
-          from utime import sleep_ms
+      
+  <p><code>from machine import Pin<br>
+        from utime import sleep_ms</p>
           
-          button = Pin(0, Pin.IN, Pin.PULL_UP) #Internal pull-up
-          led = Pin(1, Pin.OUT)
-          State = 0 
+          <p>button = Pin(0, Pin.IN, Pin.PULL_UP) #Internal pull-up<br>
+          led = Pin(1, Pin.OUT)<br>
+          State = 0 </p>
           
-          if __name__ == '__main__':
-              while True:
-                  print(button.value())
-                  if button.value() == 0: #key press
-                      if State == 0:
-                          led.value(1)
-                          sleep_ms = 100
-                          while button.value() == 0:
-                              State = 1
-                      else:
-                          led.value(0)
-                          sleep_ms = 100
-                          while button.value() == 0:
-                              State = 0</code>
+          <p>if __name__ == '__main__':<br>
+              while True:<br>
+                  print(button.value())<br>
+                  if button.value() == 0: #key press<br>
+                      if State == 0:<br>
+                          led.value(1)<br>
+                          sleep_ms = 100<br>
+                          while button.value() == 0:<br>
+                              State = 1<br>
+                      else:<br>
+                          led.value(0)<br>
+                          sleep_ms = 100<br>
+                          while button.value() == 0:<br>
+                              State = 0</code></p>
 
 
 <video width="320" height="240" controls>
-<source src="../videos/trafficlights.mp4" type ="video/mp4">
+<source src="../videos/mp4" type ="video/mp4">
 Your browser does not support the video tag.
  </video>>
 
 
 
     
-    <p><b>Sensor<b>- a device that detect/ senses physical phenomenon then reacts to it in a particular way.<br>It converts physical attributes to electric signal.<br>eg..<b>Ultrasonic sensor</b> which sends out soundwaves and measures the time it takes for the sound to be reflected back.</p>
-    <p><b>Actuator<b>- is a part of a device that achieves physical movement by converting energy to mechanical force.<br>It controls movement or positioning.<br>An actuator recieves and acts on the information given.Initially it relies on the sensor for info inorder for it to work.</p>
+    <p><b>SENSOR<b>- a device that detect/ senses physical phenomenon then reacts to it in a particular way.<br>It converts physical attributes to electric signal.<br>eg..<b>Ultrasonic sensor</b> which sends out soundwaves and measures the time it takes for the sound to be reflected back.</p>
+    <p><b>ACTUATOR<b>- is a part of a device that achieves physical movement by converting energy to mechanical force.<br>It controls movement or positioning.<br>An actuator recieves and acts on the information given.Initially it relies on the sensor for info inorder for it to work.</p>
    
 
    <p><b>Here is a simple project using an ultrasonic sensor<b></p>
@@ -102,27 +103,27 @@ Your browser does not support the video tag.
   led =Pin(4, Pin.OUT)<br>
   buzzer= Pin(5, Pin.OUT)<br>
   led.value(0)<br>
-  buzzer.value(0)<br>
+  buzzer.value(0)</p>
   
-  def ultra():<br>
+  <p>def ultra():<br>
       trigger.low()<br>
       utime.sleep_us(2)<br>
       trigger.high()<br>
       utime.sleep_us(5)<br>
-      trigger.low()<br>
+      trigger.low()</p>
   
-      while echo.value() == 0:<br>
-          signaloff = utime.ticks_us()<br>
+      <p>while echo.value() == 0:<br>
+          signaloff = utime.ticks_us()</p>
   
-      while echo.value() == 1:<br.
-          signalon = utime.ticks_us()<br>
+      <p>while echo.value() == 1:<br.
+          signalon = utime.ticks_us()</p>
   
-      timepassed = signalon - signaloff<br>
+      <p>timepassed = signalon - signaloff<br>
       distance = (timepassed * 0.0343) / 2<br>
-      return distance<br>
+      return distance</p>
 
   
-  while True:<br>
+<p>while True:<br>
            measured_distance = ultra()<br>
                if measured_distance <= 50:<br>
                  print("The distance from the object is ", measured_distance, "cm")<br>
@@ -131,9 +132,9 @@ Your browser does not support the video tag.
                       utime.sleep(1)<br>
                         led.value(0)<br>
                           buzzer.value(0)<br>
-                             break<br>
+                             break</p>
                              
-                             utime.sleep(1)</code></p>
+<p>utime.sleep(1)</code></p>
 
 
 </body>
