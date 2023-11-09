@@ -44,16 +44,19 @@ import time</p>
 <p><b>Access Control Systems<b></p>
   <p><b>RFID-(Radio Frequency Identification)<b> is a method of wireless communication which uses electromagnetic waves to identify specific targets without<br> establishing any physical contact between the identification system and the target.</p>
   
-  <p><b>RFID access system and RPI Pico PROJECT<b></p>
-    <p><code>from mfrc522 import MFRC522<br>
+  <p><b>RFID access control system using RPI Pico<b></p>
+<p><code>from mfrc522 import MFRC522<br>
+
 import utime<br>
 from machine import Pin<br>
 lock =Pin(16,Pin.OUT)<br>
 buzzer = Pin(17, Pin.OUT)<br>
 Red =Pin(2,Pin.OUT)<br>
 Green =Pin(1,Pin.OUT)<br></p>
+
 #Blue = Pin(11, Pin.OUT)
 #Touch_sensor = machine.Pin(7,Pin.IN,Pin.PULL_UP)
+
 <p>lock.value(0)<br>
 buzzer.value(0)<br>
 Red.value(0)<br>
@@ -113,6 +116,80 @@ while True:<br>
       <source src="../videos/lock- 5v relay-buzzer-LED-RFID.mp4" type ="video/mp4">
     Your browser does not support the video tag.
     </video>>
+
+
+    <p><b>RFID access control system using an ESP32<b></p>
+      <p><code>#include <SPI.h><br>
+        #include <MFRC522.h></p>
+        
+        <p>#define RST_PIN 27     // Reset pin for RC522 module<br>
+        #define SDA_PIN 5      // Slave Select pin for RC522 module<br>
+        #define LED_GREEN 2<br>
+        #define LED_RED 4<br>
+        #define BUZZER 26<br>
+        #define RELAY_PIN 13<br>
+        MFRC522 rfid(SDA_PIN, RST_PIN);   // Create MFRC522 instance</p>
+         
+         
+        <p>void setup() {<br>
+          pinMode(LED_GREEN, OUTPUT);<br>
+          pinMode(LED_RED, OUTPUT);<br>
+          pinMode (BUZZER, OUTPUT);<br>
+          pinMode (RELAY_PIN, OUTPUT);<br>
+          Serial.begin(9600);<br>
+          SPI.begin();<br>
+          rfid.PCD_Init();<br>
+          Serial.println("RFID Ready!");<br>
+          Serial.println("");<br>
+        }<br>
+        void loop() {<br>
+          if (rfid.PICC_IsNewCardPresent() && rfid.PICC_ReadCardSerial()) {<br>
+            Serial.print("Card UID:");<br>
+            String uid = "";<br>
+            for (byte i = 0; i < rfid.uid.size; i++) {<br>
+              Serial.print(rfid.uid.uidByte[i] < 0x10 ? "0" : "");<br>
+              Serial.print(rfid.uid.uidByte[i], DEC);<br>
+              uid.concat(String(rfid.uid.uidByte[i] < 0x10 ? "0" : ""));<br>
+              uid.concat(String(rfid.uid.uidByte[i], DEC));<br>
+            }<br>
+            Serial.println("");<br>
+           if( uid =="9621916220" )<br>
+                {<br>
+                 Serial.println("Virginia Njeri");</p>
+                 
+                 digitalWrite(LED_GREEN, HIGH);<br> 
+                 digitalWrite (RELAY_PIN, HIGH);<br>
+                 delay(3000);<br> 
+                 digitalWrite(LED_GREEN, LOW);<br>
+                 digitalWrite (RELAY_PIN,LOW);<br>
+                }</p>
+                
+                <p>else if(uid=="9621916220" )<br>
+                {<br>
+                 Serial.println("Virginia Njeri");</p> 
+                 
+                 <p>digitalWrite(LED_GREEN, HIGH);<br> 
+                 digitalWrite (RELAY_PIN, HIGH);<br>
+                 delay(3000);<br>  
+                 digitalWrite(LED_GREEN, LOW);<br>
+                 digitalWrite (RELAY_PIN,LOW);</p>
+        
+                <p>}
+                else {<br>
+                Serial.println("Unregistered user");</p>
+        
+                <p>digitalWrite(LED_RED, HIGH);<br> 
+                 digitalWrite(BUZZER, HIGH);<br> 
+                 delay(1000);<br> 
+                 digitalWrite(LED_RED, LOW);<br>
+                 digitalWrite(BUZZER, LOW);</p> 
+        
+                }
+        
+          }<br>
+          //rfid.PICC_HaltA();<br>
+          //rfid.PCD_StopCrypto1();<br>
+}</code></p>
 
   
     
