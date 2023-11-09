@@ -53,23 +53,50 @@ three= Pin(2,Pin.OUT)</p>
     three.value(1)<code></p>
 
     <video width="320" height="240" controls>
-      <source src="../videos/traffic" type ="video/mp4">
+      <source src="../videos/trafficlights.mp4" type ="video/mp4">
     Your browser does not support the video tag.
     </video>>
 
     <p><b>Controlling an LED using pushbutton<b></p>
-        <code></code>
+        <code>from machine import Pin
+          from utime import sleep_ms
+          
+          button = Pin(0, Pin.IN, Pin.PULL_UP) #Internal pull-up
+          led = Pin(1, Pin.OUT)
+          State = 0 
+          
+          if __name__ == '__main__':
+              while True:
+                  print(button.value())
+                  if button.value() == 0: #key press
+                      if State == 0:
+                          led.value(1)
+                          sleep_ms = 100
+                          while button.value() == 0:
+                              State = 1
+                      else:
+                          led.value(0)
+                          sleep_ms = 100
+                          while button.value() == 0:
+                              State = 0</code>
+
+
+<video width="320" height="240" controls>
+<source src="../videos/trafficlights.mp4" type ="video/mp4">
+Your browser does not support the video tag.
+ </video>>
+
+
 
     
-    <p><b>Sensor</b>- a device that detect/ senses physical phenomenon then reacts to it in a particular way.<br>It converts physical attributes to electric signal.<br>eg..<b>Ultrasonic sensor</b> which sends out soundwaves and measures the time it takes for the sound to be reflected back.</p>
-    <p><b>Actuator</b>- is a part of a device that achieves physical movement by converting energy to mechanical force.<br>It controls movement or positioning.<br>An actuator recieves and acts on the information given.Initially it relies on the sensor for info inorder for it to work.</p>
+    <p><b>Sensor<b>- a device that detect/ senses physical phenomenon then reacts to it in a particular way.<br>It converts physical attributes to electric signal.<br>eg..<b>Ultrasonic sensor</b> which sends out soundwaves and measures the time it takes for the sound to be reflected back.</p>
+    <p><b>Actuator<b>- is a part of a device that achieves physical movement by converting energy to mechanical force.<br>It controls movement or positioning.<br>An actuator recieves and acts on the information given.Initially it relies on the sensor for info inorder for it to work.</p>
    
 
    <p><b>Here is a simple project using an ultrasonic sensor<b></p>
 
-  <p> <code>from machine import Pin<br></p>
-    <p>import utime<br>
-  
+<p><code>from machine import Pin<br></p>
+  <p>import utime<br>
   trigger = Pin(3, Pin.OUT)<br>
   echo = Pin(2, Pin.IN)<br>
   led =Pin(4, Pin.OUT)<br>
@@ -90,8 +117,8 @@ three= Pin(2,Pin.OUT)</p>
       while echo.value() == 1:<br.
           signalon = utime.ticks_us()<br>
   
-      timepassed = signalon - signaloff<br.
-      distance = (timepassed * 0.0343) / 2<br.>
+      timepassed = signalon - signaloff<br>
+      distance = (timepassed * 0.0343) / 2<br>
       return distance<br>
 
   
@@ -105,9 +132,8 @@ three= Pin(2,Pin.OUT)</p>
                         led.value(0)<br>
                           buzzer.value(0)<br>
                              break<br>
-
-      
-      utime.sleep(1)</code></p>
+                             
+                             utime.sleep(1)</code></p>
 
 
 </body>
