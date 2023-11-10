@@ -8,25 +8,24 @@
 <h1>Embedded Systems [II]</h1>
 <p> An <b>Electronic circuit</b> is a complete circular path that electricity flows through. It directs and controls electric current to perform various functions.
     
-  <p><b>Electrical components</b>:These are elements in electrical circuits that perform specific functions to control, regulate, or manipulate <br>the flow of electric current.
+<p><b>Electrical components</b>:These are elements in electrical circuits that perform specific functions to control, regulate, or manipulate <br>the flow of electric current.
     
-    <p>These components can be classified into two :</p>
-
-         <p><b>Active components</b> are electronic devices that can control the flow of electrical current.<br>They require a power source to operate and can amplify, switch, or generate electrical signals.<br>They include transistors,micro-controllers</p>
+<p>These components can be classified into two :</p>
+          <p><b>Active components</b> are electronic devices that can control the flow of electrical current.<br>They require a power source to operate and can amplify, switch, or generate electrical signals.<br>They include transistors,micro-controllers</p>
 
           <p><b>Passive components</b> are electronic devices that do not require a power source to perform their specified function.<br>They do not control the flow of electrical current but instead modify or store it.<br>They include resistors, capacitors, inductors, transformers, and diodes.</p>
 
-         <p><br>A circuit has three essential components that work together to enable current flow:<br></p>
+<p><br>A circuit has three essential components that work together to enable current flow:<br></p>
                                           <p><b>a conductive path</b>- a pathway for current to pass through...wire
                                           <br><b>a power source</b>-for providence of electrical energy(battery)
                                           <br><b>a load</b>-any device that needs electric power to operate</p> 
 
 
- <p><b>Traffic lights using LEDS with PI PICO</b></p>
+<p><b>Traffic lights using LEDS with PI PICO</b></p>
 
-    <p>with the code below:</p>
+<p>with the code below:</p>
 
-  <p><code> from machine import Pin<br>
+<p><code> from machine import Pin<br>
        from time import sleep<br></p>
 
 
@@ -52,14 +51,14 @@ three= Pin(2,Pin.OUT)</p>
     two.value(0)<br>
     three.value(1)<code></p>
 
-    <video width="320" height="240" controls>
-      <source src="../videos/trafficlights.mp4" type ="video/mp4">
-    Your browser does not support the video tag.
-    </video>>
+<video width="320" height="240" controls>
+<source src="../videos/trafficlights.mp4" type ="video/mp4">
+Your browser does not support the video tag.
+</video>>
 
-    <p><b>Controlling an LED using pushbutton<b></p>
+<p><b>Controlling an LED using pushbutton<b></p>
 
-  <p><code>from machine import Pin<br>
+<p><code>from machine import Pin<br>
         from utime import sleep_ms</p>
           
           <p>button = Pin(0, Pin.IN, Pin.PULL_UP) #Internal pull-up<br>
@@ -91,11 +90,11 @@ Your browser does not support the video tag.
 
 
     
-    <p><b>SENSOR<b>- a device that detect/ senses physical phenomenon then reacts to it in a particular way.<br>It converts physical attributes to electric signal.<br>eg..<b>Ultrasonic sensor</b> which sends out soundwaves and measures the time it takes for the sound to be reflected back.</p>
-    <p><b>ACTUATOR<b>- is a part of a device that achieves physical movement by converting energy to mechanical force.<br>It controls movement or positioning.<br>An actuator recieves and acts on the information given.Initially it relies on the sensor for info inorder for it to work.</p>
+<p><b>SENSOR<b>- a device that detect/ senses physical phenomenon then reacts to it in a particular way.<br>It converts physical attributes to electric signal.<br>eg..<b>Ultrasonic sensor</b> which sends out soundwaves and measures the time it takes for the sound to be reflected back.</p>
+<p><b>ACTUATOR<b>- is a part of a device that achieves physical movement by converting energy to mechanical force.<br>It controls movement or positioning.<br>An actuator recieves and acts on the information given.Initially it relies on the sensor for info inorder for it to work.</p>
    
 
-   <p><b>Here is a simple project using an ultrasonic sensor<b></p>
+<p><b>Here is a simple project using an ultrasonic sensor<b></p>
 
 <p><code>from machine import Pin<br></p>
   <p>import utime<br>
