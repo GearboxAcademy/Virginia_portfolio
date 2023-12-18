@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title></title>
+<title>MODULE 7</title>
 </head>
 <body>
 
-<h1></h1>
-<p></p>
+<h1>CCTV and IP CAMERA APPLICATIONS</h1>
+<h2>Internet Protocols</h2>
+<p>Its a unique address that identifies a device over a network.<br>A set of rules that form an internet standard</p>
+<p>Some internet protocols include:</p>
+             <p>1.FTP(File Transfer Protocol)-Takes care of how files are sent over the internet.<br>
+                2.SMTP(Simple Mail Transfer Protocol)-it is used to send and recieve data eg. exchanging of emails.<br>
+                3.HTTP(Hyper Text Transfer Protocol)-initiates communication to a webserver.<br>
+                4.SSL(Secure Shell Layer)& TLS(Transport Layer Security)-both use {HTTP}a secure tunnel to communicate.This process is known as HTTPS.<br>
+                        HTTPS- is a http conversation secured within a SSL and TLS protocol.</p>
+
+<p>A host is any device that sends or recieves traffic.<br>Server- a computer that has software that responds to requests.<br>For a host to speak to another host it needs to know its IP address.</p>
+<p>Every host needs four items for internet connectivity.<br>
+     <p>1.IP address- host's identity on the internet.<br>
+        2.Subnet mask- determines if the other host is on its own network or on a foreign network.<br>
+        3.Default gateway- Routers IP.<br>
+        4.DNS Server IP(s)- Translate domain names to IPs.</p>
+
+<h3>OSI MODEL</h3>
+<p>Open System Interconnection- a framework used to describe how a network functions.<br>It contains 7 layers that work together to transmirt data from one person to another across the globe.<br>
+The layers are:</p>
+         <p>1.Physical layer- is responsible for actual physical connection between devices.<br>
+            2.Data link layer- used in node to node delivery of message.<br> 
+            3.Network layer- transmits data from one host to another located in different networks.<br>
+            4.Transport layer- takes services from network layer and provides it to the application layer.<br>
+            5.Session layer- allows two processes to establish, use and terminate a connection.<br>
+            6.Presentation layer- also known as translation layer.Data from the application layer is extracted and manipulated in the required format for transmission.<br>
+            7.Application layer- provides network services to the user's data.Helps to identify the client and synchronize communication.</p>
+
+<h4>TCP/IP MODEL</h4>
+<p>Transmission Control Protocol<br>Transfers data of a computer from one device to another.<br>It divides is data into packets  and combines them at the other end.<br>Main condition is to make the data reliable and accurate.<br>IP- finds the mails destination.<br>TCP- sends and recieves the mail.<br>it contains 4 layers:</p>
+                 <p>1.Physical layer- responsible for generatin the data and requesting connections.<br>
+                    2.Data link layer- used in error prevention and framing.<br>
+                    3.Internet layer- assigns each device a unique IP which identifies it and determines the route the packets should take to reach it.</p>
+
+<p>Designing an IP camera using the ESP32 CAM</p>
 
 </body>
 </html>
