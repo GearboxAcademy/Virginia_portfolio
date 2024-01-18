@@ -1,85 +1,163 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MODULE 3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+</style>
 </head>
 <body>
 
-<h1>Embedded Systems [III]</h1>
-<h2>Arduino IDE and programming ESP32</h2>
-<p><b>Arduino IDE</b> is an intergrated development environment for programming Arduino boards.<br>Its a powerful micro-controller module and versatile tool that makes it easy to create and program interactive electronic projects.</p>
+<div class="about-section">
+  <h1>MODULE 3</h1>
+</div>
 
- <p>ESP32 is a highly capable microcontroller with a wide range of features and capabilities such as dual cores,low power consumption <br>and compatibility with development frameworks which makes it a preffered choice for IoT applications.</p>
+<h2 style="text-align:center">Embedded Systems [III]</h2>
+<h3 style="text-align:center">Arduino IDE and programming ESP32</h3>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <div class="container">
+        <p><b>Arduino IDE</b> is an intergrated development environment for programming Arduino boards.<br>Its a powerful micro-controller module and versatile tool that makes it easy to create and program interactive electronic projects.</p>
 
-<p>The ESP32 is programmed using the Arduino IDE which involves installing the IDE, adding support for the ESP32 board, selecting the appropriate board variant,<br> connecting the ESP32 to your computer, writing a code in the Arduino IDE<br>and uploading it to the board.</p>
+        <p>ESP32 is a highly capable microcontroller with a wide range of features and capabilities such as dual cores,low power consumption <br>and compatibility with development frameworks which makes it a preffered choice for IoT applications.</p>
+       
+       <p>The ESP32 is programmed using the Arduino IDE which involves installing the IDE, adding support for the ESP32 board, selecting the appropriate board variant,<br> connecting the ESP32 to your computer, writing a code in the Arduino IDE<br>and uploading it to the board.</p>
+       
+       <p><b>An ESP32 NodeMCU32S PINOUT</b></p>
+       <img src="../images/image.png" width="250" height="200">
+       
+        <p><b>Blinking internal onboard LED of ESP32<b></p>
+         <p><code>#define ONBOARD_LED 2
+       
+       <p>void setup () {<br>
+         pinMode (ONBOARD_LED,OUTPUT);<br>
+       }</p>
+       
+       <p>void loop () {<br>
+         delay (1000);<br>
+         digitalWrite (ONBOARD_LED,HIGH);<br>
+         delay (100);<br>
+         digitalWrite (ONBOARD_LED,LOW);<br>
+       }</code></p>
+       
+       <video width="320" height="240" controls>
+         <source src="../videos/blinking esp.mp4" type ="video/mp4">
+       Your browser does not support the video tag.
+       </video>>
+       
+       
+       <p><b>Traffic lights LED based project with ESP32</b></p>
+       
+       <p><code>const int led_green = 23; // Define the pin for the yellow LED<br>
+         const int led_yellow = 22; // Define the pin for the red LED<br>
+         const int led_red = 21; // Define the pin for the green LED<br></p>
+         
+         <p>void setup() {<br>
+           pinMode(led_yellow, OUTPUT); // Set the yellow LED pin as an output<br>
+           pinMode(led_red, OUTPUT); // Set the red LED pin as an output,<br>
+           pinMode(led_green, OUTPUT); // Set the green LED pin as an output<br>
+         }</p>
+         
+           
+         <p>>void loop() {<br>
+           digitalWrite(led_green, HIGH); // Turn on the green LED<br>
+           digitalWrite(led_yellow, LOW);<br>
+           digitalWrite(led_red, LOW);<br>
+           delay(1000); // Wait for 1 second<br></p>
+       
+          
+           <p>digitalWrite(led_green, LOW);<br>
+           digitalWrite(led_yellow, HIGH); // Turn on the yellow LED<br>
+           digitalWrite(led_red, LOW);<br>
+           delay(1000);<br></p>
+          
+           
+           <p>digitalWrite(led_green, LOW);<br>
+           digitalWrite(led_yellow, LOW);<br>
+           digitalWrite(led_red, HIGH); // Turn on the red LED<br>
+           delay(1000);<br>}</code></p>
+       
+       <img src="../images/esp traffic.jpg" width="250" height="200">
+       
+       
+       <video width="320" height="240" controls>
+           <source src="../videos/traffic esp.mp4" type ="video/mp4">
+         Your browser does not support the video tag.
+         </video>>  
+      </div>
+    </div>
+  </div>
 
-<p><b>An ESP32 NodeMCU32S PINOUT</b></p>
-<img src="../images/image.png" width="250" height="200">
-
- <p><b>Blinking internal onboard LED of ESP32<b></p>
-  <p><code>#define ONBOARD_LED 2
-
-<p>void setup () {<br>
-  pinMode (ONBOARD_LED,OUTPUT);<br>
-}</p>
-
-<p>void loop () {<br>
-  delay (1000);<br>
-  digitalWrite (ONBOARD_LED,HIGH);<br>
-  delay (100);<br>
-  digitalWrite (ONBOARD_LED,LOW);<br>
-}</code></p>
-
-<video width="320" height="240" controls>
-  <source src="../videos/blinking esp.mp4" type ="video/mp4">
-Your browser does not support the video tag.
-</video>>
-
-
-<p><b>Traffic lights LED based project with ESP32</b></p>
-
-<p><code>const int led_green = 23; // Define the pin for the yellow LED<br>
-  const int led_yellow = 22; // Define the pin for the red LED<br>
-  const int led_red = 21; // Define the pin for the green LED<br></p>
   
-  <p>void setup() {<br>
-    pinMode(led_yellow, OUTPUT); // Set the yellow LED pin as an output<br>
-    pinMode(led_red, OUTPUT); // Set the red LED pin as an output,<br>
-    pinMode(led_green, OUTPUT); // Set the green LED pin as an output<br>
-  }</p>
-  
-    
-  <p>>void loop() {<br>
-    digitalWrite(led_green, HIGH); // Turn on the green LED<br>
-    digitalWrite(led_yellow, LOW);<br>
-    digitalWrite(led_red, LOW);<br>
-    delay(1000); // Wait for 1 second<br></p>
-
-   
-    <p>digitalWrite(led_green, LOW);<br>
-    digitalWrite(led_yellow, HIGH); // Turn on the yellow LED<br>
-    digitalWrite(led_red, LOW);<br>
-    delay(1000);<br></p>
-   
-    
-    <p>digitalWrite(led_green, LOW);<br>
-    digitalWrite(led_yellow, LOW);<br>
-    digitalWrite(led_red, HIGH); // Turn on the red LED<br>
-    delay(1000);<br>}</code></p>
-
-<img src="../images/esp traffic.jpg" width="250" height="200">
-
-
-<video width="320" height="240" controls>
-    <source src="../videos/traffic esp.mp4" type ="video/mp4">
-  Your browser does not support the video tag.
-  </video>>
-
-
-
-
-
-
 
 </body>
 </html>
+
