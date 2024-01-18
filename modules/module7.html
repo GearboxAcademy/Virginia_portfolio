@@ -1,46 +1,128 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MODULE 7</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+</style>
 </head>
 <body>
 
-<h1>CCTV and IP CAMERA APPLICATIONS</h1>
-<h2>Internet Protocols</h2>
-<p>Its a unique address that identifies a device over a network.<br>A set of rules that form an internet standard</p>
-<p>Some internet protocols include:</p>
-             <p>1.FTP(File Transfer Protocol)-Takes care of how files are sent over the internet.<br>
-                2.SMTP(Simple Mail Transfer Protocol)-it is used to send and recieve data eg. exchanging of emails.<br>
-                3.HTTP(Hyper Text Transfer Protocol)-initiates communication to a webserver.<br>
-                4.SSL(Secure Shell Layer)& TLS(Transport Layer Security)-both use {HTTP}a secure tunnel to communicate.This process is known as HTTPS.<br>
-                        HTTPS- is a http conversation secured within a SSL and TLS protocol.</p>
+<div class="about-section">
+  <h1>MODULE 7</h1>
+</div>
 
-<p>A host is any device that sends or recieves traffic.<br>Server- a computer that has software that responds to requests.<br>For a host to speak to another host it needs to know its IP address.</p>
-<p>Every host needs four items for internet connectivity.<br>
-     <p>1.IP address- host's identity on the internet.<br>
-        2.Subnet mask- determines if the other host is on its own network or on a foreign network.<br>
-        3.Default gateway- Routers IP.<br>
-        4.DNS Server IP(s)- Translate domain names to IPs.</p>
+<h2 style="text-align:center"CCTV and IP CAMERA APPLICATIONS></h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <div class="container">
+         <h2>Internet Protocols</h2>
+         <p>Its a unique address that identifies a device over a network.<br>A set of rules that form an internet standard</p>
+         <p>Some internet protocols include:</p>
+                      <p>1.FTP(File Transfer Protocol)-Takes care of how files are sent over the internet.<br>
+                         2.SMTP(Simple Mail Transfer Protocol)-it is used to send and recieve data eg. exchanging of emails.<br>
+                         3.HTTP(Hyper Text Transfer Protocol)-initiates communication to a webserver.<br>
+                         4.SSL(Secure Shell Layer)& TLS(Transport Layer Security)-both use {HTTP}a secure tunnel to communicate.This process is known as HTTPS.<br>
+                                 HTTPS- is a http conversation secured within a SSL and TLS protocol.</p>
+         
+         <p>A host is any device that sends or recieves traffic.<br>Server- a computer that has software that responds to requests.<br>For a host to speak to another host it needs to know its IP address.</p>
+         <p>Every host needs four items for internet connectivity.<br>
+              <p>1.IP address- host's identity on the internet.<br>
+                 2.Subnet mask- determines if the other host is on its own network or on a foreign network.<br>
+                 3.Default gateway- Routers IP.<br>
+                 4.DNS Server IP(s)- Translate domain names to IPs.</p>
+            
+         <p><b>OSI MODEL</b></p>
+         <p>Open System Interconnection- a framework used to describe how a network functions.<br>It contains 7 layers that work together to transmirt data from one person to another across the globe.<br>
+         The layers are:</p>
+                  <p>1.Physical layer- is responsible for actual physical connection between devices.<br>
+                     2.Data link layer- used in node to node delivery of message.<br> 
+                     3.Network layer- transmits data from one host to another located in different networks.<br>
+                     4.Transport layer- takes services from network layer and provides it to the application layer.<br>
+                     5.Session layer- allows two processes to establish, use and terminate a connection.<br>
+                     6.Presentation layer- also known as translation layer.Data from the application layer is extracted and manipulated in the required format for transmission.<br>
+                     7.Application layer- provides network services to the user's data.Helps to identify the client and synchronize communication.</p>
+         
+         <p><b>TCP/IP MODEL</b></p>
+         <p>Transmission Control Protocol<br>Transfers data of a computer from one device to another.It divides is data into packets  and combines them at the other end.<br>Main condition is to make the data reliable and accurate.<br>IP- finds the mails destination.<br>TCP- sends and recieves the mail.<br>it contains 4 layers:</p>
+                          <p>1.Physical layer- responsible for generatin the data and requesting connections.<br>
+                             2.Data link layer- used in error prevention and framing.<br>
+                             3.Internet layer- assigns each device a unique IP which identifies it and determines the route the packets should take to reach it.</p>
+         
+         <p><b>Designing an IP camera using the ESP32 CAM</b></p>
+         
+         <img src="../images/ESP32-CAM.webp" width="300" height="200"> 
+      </div>
+    </div>
+  </div>
 
-<h3>OSI MODEL</h3>
-<p>Open System Interconnection- a framework used to describe how a network functions.<br>It contains 7 layers that work together to transmirt data from one person to another across the globe.<br>
-The layers are:</p>
-         <p>1.Physical layer- is responsible for actual physical connection between devices.<br>
-            2.Data link layer- used in node to node delivery of message.<br> 
-            3.Network layer- transmits data from one host to another located in different networks.<br>
-            4.Transport layer- takes services from network layer and provides it to the application layer.<br>
-            5.Session layer- allows two processes to establish, use and terminate a connection.<br>
-            6.Presentation layer- also known as translation layer.Data from the application layer is extracted and manipulated in the required format for transmission.<br>
-            7.Application layer- provides network services to the user's data.Helps to identify the client and synchronize communication.</p>
-
-<h4>TCP/IP MODEL</h4>
-<p>Transmission Control Protocol<br>Transfers data of a computer from one device to another.It divides is data into packets  and combines them at the other end.<br>Main condition is to make the data reliable and accurate.<br>IP- finds the mails destination.<br>TCP- sends and recieves the mail.<br>it contains 4 layers:</p>
-                 <p>1.Physical layer- responsible for generatin the data and requesting connections.<br>
-                    2.Data link layer- used in error prevention and framing.<br>
-                    3.Internet layer- assigns each device a unique IP which identifies it and determines the route the packets should take to reach it.</p>
-
-<h5>Designing an IP camera using the ESP32 CAM</h5>
-
-<img src="../images/ESP32-CAM.webp" width="300" height="200">
 </body>
 </html>

@@ -1,12 +1,90 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MODULE 5</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+</style>
 </head>
 <body>
 
-<h1>Microcontroller Programming and Access Control Systems III</h1>
-<p><b>Interfacing RPI Pico with a Relay</b></p>
+<div class="about-section">
+  <h1>MODULE 5</h1>
+</div>
+
+<h2 style="text-align:center">Microcontroller Programming and Access Control Systems III</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <div class="container">
+        <p><b>Interfacing RPI Pico with a Relay</b></p>
 
   <p>A 5v relay module is a type of switch taht can be turned on /off electronically.<br>
   It controls a higher-powered device from a low-powered microcontroller without burning it </p>
@@ -197,9 +275,12 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>>
 
+      </div>
+    </div>
+  </div>
 
-
-  </p>
+  
 
 </body>
 </html>
+

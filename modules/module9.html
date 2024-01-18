@@ -1,24 +1,106 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MODULE 9</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+</style>
 </head>
 <body>
 
-<h1>ASSET TRACKING</h1>
-<h2>GPS{Global Positioning system}</h2>
+<div class="about-section">
+  <h1>MODULE 9</h1>
+</div>
 
-<img src="../images/neo6m_main.jpg" width="300" height="200">
-<p>Its a space-based satelite navigation system provides location and time information.<br>GPS receivers are mostly used for navigation, positioning, time dissemination, and other research purposes.<br>The receiver converts the received signals into position and estimates the time and some other useful information depending on the application and requirements.</p>
-    
-<img src="../images/gps explained.jpg" width="300" height="200">
-<p>GPS determines the distance between a satelite and GPSreciever by calculating the time taken by the radio signal to travel from a satelite to the reciever.</p>
-<h3>GPS PROTOCOLS</h3>
-     <p>1.NMEA 0183<br>
-          It is commonly used in marine applications.</p>
-     <p>2.TSIP {Trimble Starndard Interface Protocol}<br>
-          Allows the designer toconfigure and control GPS reciever for optimal performance.</p>
-     <p>3.TAIP {Trimble ASCII Interface Protocol}<br>
-          Its a bidirectional protocol which uses ASCI commands and designed specifically for vehicle tracking applications </p>      
-</body>
-</html>
+<h2 style="text-align:center">ASSET TRACKING</h2>
+<h2 style="text-align:center">GPS{Global Positioning system}</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <div class="container">
+          <img src="../images/neo6m_main.jpg" width="300" height="200">
+          <p>Its a space-based satelite navigation system provides location and time information.<br>GPS receivers are mostly used for navigation, positioning, time dissemination, and other research purposes.<br>The receiver converts the received signals into position and estimates the time and some other useful information depending on the application and requirements.</p>
+              
+          <img src="../images/gps explained.jpg" width="300" height="200">
+          <p>GPS determines the distance between a satelite and GPSreciever by calculating the time taken by the radio signal to travel from a satelite to the reciever.</p>
+          <p><b>GPS PROTOCOLS</b></p>
+               <p>1.NMEA 0183<br>
+                    It is commonly used in marine applications.</p>
+               <p>2.TSIP {Trimble Starndard Interface Protocol}<br>
+                    Allows the designer toconfigure and control GPS reciever for optimal performance.</p>
+               <p>3.TAIP {Trimble ASCII Interface Protocol}<br>
+                    Its a bidirectional protocol which uses ASCI commands and designed specifically for vehicle tracking applications </p>      
+           
+      </div>
+    </div>
+  </div>
+
+  
+
