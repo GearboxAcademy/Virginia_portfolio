@@ -92,7 +92,7 @@
       <div class="card">
         <div class="container">
           <p><b>SPI {Serial Periphal Interface}<b><p>
-            <p>Sends data between a micro-controller and 1 or more intergrated circuit<br>
+          <p>Sends data between a micro-controller and 1 or more intergrated circuit<br>
             It is full duplex (data is transmitted and recieved at the same time in high speed)<br>
             It is a single master and multi-slave type of communication where each slave has a (ss)slave select line which is used for selecting the desired slave for communication.<br>
             It is synchronus therefore it relies on an external clock.</p>
@@ -101,13 +101,13 @@
             <p><b>SPI PROJECTS<b></p>
               <p><b>Interfacing OLED with PI PICO<b></p>
               
-              <p><code>from machine import Pin, SPI<br>
+       <p><code>from machine import Pin, SPI<br>
                 from ssd1306 import SSD1306_SPI<br>
                 import framebuf<br>
                 from time import sleep</p>
                 
                 
-                <p>spi = SPI(0, 100000, mosi=Pin(19), sck=Pin(18))<br>
+             <p>spi = SPI(0, 100000, mosi=Pin(19), sck=Pin(18))<br>
                 oled = SSD1306_SPI(128, 64, spi, Pin(17),Pin(20), Pin(16))<br>
                 #oled = SSD1306_SPI(WIDTH, HEIGHT, spi, dc,rst, cs) use GPIO PIN NUMBERS<br>
                 while True:<br>
@@ -115,14 +115,14 @@
                         for i in range(40):<br>
                             for j in range(56):</p>
                                
-                                <p>oled.fill(0)<br>
+                             <p>oled.fill(0)<br>
                                 oled.show()<br>
                                 #sleep(1)<br>
                                 oled.text("HELLO WORLD",i,j)<br>
                                 oled.show()<br>
                                 sleep_ms(10)<br>
-                    except KeyboardInterrupt:<br>
-                        break</code></body></p>
+                                except KeyboardInterrupt:<br>
+                                break</code></body></p>
             
                         <img src="../images/OLED -PICO.jpg" width="200" height="300">
             
@@ -135,21 +135,21 @@
             <p><b>Interfacing RFID with PI PICO<b></p>
             
             
-            <p>from machine import Pin<br>
+             <p>from machine import Pin<br>
                 from mfrc522 import MFRC522<br>
-                import utime<br></p>
+                import utime</p>
                        
-                <p>reader = MFRC522(spi_id=0,sck=2,miso=4,mosi=3,cs=1,rst=0)</p>
+            <p>reader = MFRC522(spi_id=0,sck=2,miso=4,mosi=3,cs=1,rst=0)</p>
             
-                <p>led_green = Pin(6, Pin.OUT)<br>
+             <p>led_green = Pin(6, Pin.OUT)<br>
                 led_red = Pin(7, Pin.OUT)<br>
                 #blue = Pin(11, Pin.OUT)</p>
                 
-                <p>print("Bring RFID TAG Closer...")<br>
+             <p>print("Bring RFID TAG Closer...")<br>
                 print("")</p>
                 
                 
-                <p>while True:<br>
+                 <p>while True:<br>
                     reader.init()<br>
                     (stat, tag_type) = reader.request(reader.REQIDL)<br>
                     if stat == reader.OK:<br>
@@ -157,20 +157,20 @@
                         if stat == reader.OK:<br>
                             card = int.from_bytes(bytes(uid),"little",False)</p>
                            
-                            <p>if card == 346217312:<br>
+                             <p>if card == 346217312:<br>
                                 print("Card ID: "+ str(card)+" PASS: Green Light Activated")<br>
                                 led_red.value(0)<br>
                                 led_green.value(1)<br>
                                 #blue.value(0)</p>
                                
                                
-                            <p>elif card == 410761305:<br>
+                             <p>elif card == 410761305:<br>
                                 print("Card ID: "+ str(card)+" PASS: Blue Light Activated")<br>
                                 led_red.value(0)<br>
                                 led_green.value(1)<br>
                                 #blue.value(1)</p>
                                
-                            <p>else:<br>
+                             <p>else:<br>
                                 print("Card ID: "+ str(card)+" UNKNOWN CARD! Red Light Activated")<br>
                                 led_red.value(1)<br>
                                 led_green.value(0)<br>
@@ -191,16 +191,16 @@
                         #include <Adafruit_GFX.h><br>
                         #include <Adafruit_SSD1306.h><br>
                         
-                        <p>#define SCREEN_WIDTH 128<br>
+                     <p>#define SCREEN_WIDTH 128<br>
                         #define SCREEN_HEIGHT 64</p>
                         
-                        <p>#define OLED_MOSI   23<br>
+                     <p>#define OLED_MOSI   23<br>
                         #define OLED_CLK    18<br>
                         #define OLED_DC     16<br>
                         #define OLED_CS     5<br>
                         #define OLED_RESET  17</p>
                         
-                        <p>Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT,<br>
+                       <p>Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT,<br>
                           OLED_MOSI, OLED_CLK, OLED_DC, OLED_RESET, OLED_CS);</p>
             
                        <p>const unsigned char electronicshub_logo [] PROGMEM = {<br>
@@ -583,8 +583,9 @@
             
             
             <p><b>I2c{Inter-intergrated circuit}</b></p>
-            <p>Its a communication protocol that allows multiple electronic devices to<br> communicate with each other using a serial interface.</p>
-            <p>I2C protocol uses two wires: the SDA(serial Data Line) and SCL (Serial Clock Line) to facilitate communication.<br> SDA is used for transmitting and receiving data, while SCL is used  data transfer between devices.</p>
+
+            <p>Refers to a communication protocol that allows multiple electronic devices to<br> communicate with each other using a serial interface.</p>
+            <p></p>I2C protocol uses two wires: the SDA(serial Data Line) and SCL (Serial Clock Line) to facilitate communication.<br> SDA is used for transmitting and receiving data, while SCL is used  data transfer between devices.</p>
             <p>It supports multi-master and multi-slave communication where the master device initiates communication<br>and the slave acts/responds to the master's commands</p>
             <p>Has 2 different kinds of ids: <br>I2c1 <br>I2c0</p>
             <p>Also it reduces the amount of pinouts required for communication.</p>
