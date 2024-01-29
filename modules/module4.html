@@ -585,13 +585,14 @@
             <p><b>I2c{Inter-intergrated circuit}</b></p>
 
             <p>Refers to a communication protocol that allows multiple electronic devices to<br> communicate with each other using a serial interface.</p>
-            <p></p>I2C protocol uses two wires: the SDA(serial Data Line) and SCL (Serial Clock Line) to facilitate communication.<br> SDA is used for transmitting and receiving data, while SCL is used  data transfer between devices.</p>
-            <p>It supports multi-master and multi-slave communication where the master device initiates communication<br>and the slave acts/responds to the master's commands</p>
+            <p>I2C protocol uses two wires: the SDA(serial Data Line) and SCL (Serial Clock Line) to facilitate communication.<br> SDA is used for transmitting and receiving data, while SCL is used  data transfer between devices.</p>
+            <p>It supports multi-master and multi-slave communication where the master device initiates communication<br>and the slave acts/responds to the master's commands.</p>
             <p>Has 2 different kinds of ids: <br>I2c1 <br>I2c0</p>
             <p>Also it reduces the amount of pinouts required for communication.</p>
             
             <p>I2c PROJECTS</p>
-            <p><b>Interfacing OLED & AHT10 to PI PICO </b></p>
+
+            <p>Interfacing OLED & AHT10 to PI PICO</p>
             
             <p><code>from machine import Pin, SPI<br>
                       from machine import Pin, I2C<br>
@@ -812,6 +813,7 @@
             
             
             <p><b>{UART} short for Universal Asynchronus Reciever/Transmitter<b></p>
+
             <p>It defines a protocol or set of rules for exchanging serial data between 2 devices.</p>
             <p>The main purpose is to transmit and recieve serial data and does not rely on an external clock.</p>
             <p>UART is a stand alone ic or physical circuit in a micro-controller.</p>
@@ -821,8 +823,8 @@
                 
             <p><code>bool ledState=1; //variable used to save the state of LED<br>
                   void setup() {<br>
-                    Serial.begin(9600);// set baud rate to 9600<br>
-                    pinMode(LED_BUILTIN, OUTPUT);<br>
+                  Serial.begin(9600);// set baud rate to 9600<br>
+                  pinMode(LED_BUILTIN, OUTPUT);<br>
                   }</p>
             
                   <p>void loop() {<br> 
@@ -834,7 +836,7 @@
                   }</code></p>
             
                       
-                      <p><code>from machine import Pin,UART<br>
+                  <p><code>from machine import Pin,UART<br>
                   import time<br>
                   uart = UART(1, baudrate=9600, tx=Pin(4), rx=Pin(5))<br>
                   uart.init(bits=8, parity=None, stop=2)<br>
@@ -847,12 +849,12 @@
                           if data== b'm':<br>
                               led.toggle()<br>
                       time.sleep(1)
-            </code></p>
+                 </code></p>
             
-            <video width="380" height="240" controls>
-            <source src="../videos/esp32-pico.mp4" type ="video/mp4">
-            Your browser does not support the video tag.
-            </video>
+               <video width="380" height="240" controls>
+               <source src="../videos/esp32-pico.mp4" type ="video/mp4">
+               Your browser does not support the video tag.
+               </video>
              
         </div>
       </div>
